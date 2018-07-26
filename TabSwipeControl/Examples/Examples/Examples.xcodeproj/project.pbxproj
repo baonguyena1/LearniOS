@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC2A8B0621098ED80052C236 /* TabSwipeControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2A8AF621098E5B0052C236 /* TabSwipeControl.framework */; };
-		DC2A8B0721098ED80052C236 /* TabSwipeControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC2A8AF621098E5B0052C236 /* TabSwipeControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC0026112109AA01009C1BC6 /* TabSwipeControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC00260E2109A9F8009C1BC6 /* TabSwipeControl.framework */; };
+		DC0026122109AA01009C1BC6 /* TabSwipeControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC00260E2109A9F8009C1BC6 /* TabSwipeControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC97E21821098A7600A5DB67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC97E21721098A7600A5DB67 /* AppDelegate.swift */; };
 		DC97E21A21098A7600A5DB67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC97E21921098A7600A5DB67 /* ViewController.swift */; };
 		DC97E21D21098A7600A5DB67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC97E21B21098A7600A5DB67 /* Main.storyboard */; };
@@ -18,23 +18,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DC2A8AF521098E5B0052C236 /* PBXContainerItemProxy */ = {
+		DC00260D2109A9F8009C1BC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DC2A8AF021098E5A0052C236 /* TabSwipeControl.xcodeproj */;
+			containerPortal = DC0026082109A9F8009C1BC6 /* TabSwipeControl.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = DC41133C21095FB70036A5FD;
 			remoteInfo = TabSwipeControl;
 		};
-		DC2A8AF721098E5B0052C236 /* PBXContainerItemProxy */ = {
+		DC00260F2109A9F8009C1BC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DC2A8AF021098E5A0052C236 /* TabSwipeControl.xcodeproj */;
+			containerPortal = DC0026082109A9F8009C1BC6 /* TabSwipeControl.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = DC41134521095FB70036A5FD;
 			remoteInfo = TabSwipeControlTests;
 		};
-		DC2A8B0821098ED80052C236 /* PBXContainerItemProxy */ = {
+		DC0026132109AA01009C1BC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DC2A8AF021098E5A0052C236 /* TabSwipeControl.xcodeproj */;
+			containerPortal = DC0026082109A9F8009C1BC6 /* TabSwipeControl.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = DC41133B21095FB70036A5FD;
 			remoteInfo = TabSwipeControl;
@@ -49,13 +49,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DC2A8B0A21098ED80052C236 /* Embed Frameworks */ = {
+		DC0026152109AA02009C1BC6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC2A8B0721098ED80052C236 /* TabSwipeControl.framework in Embed Frameworks */,
+				DC0026122109AA01009C1BC6 /* TabSwipeControl.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,7 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC2A8AF021098E5A0052C236 /* TabSwipeControl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TabSwipeControl.xcodeproj; path = ../../TabSwipeControl.xcodeproj; sourceTree = "<group>"; };
+		DC0026082109A9F8009C1BC6 /* TabSwipeControl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TabSwipeControl.xcodeproj; path = ../../TabSwipeControl.xcodeproj; sourceTree = "<group>"; };
 		DC97E21421098A7600A5DB67 /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC97E21721098A7600A5DB67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC97E21921098A7600A5DB67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC2A8B0621098ED80052C236 /* TabSwipeControl.framework in Frameworks */,
+				DC0026112109AA01009C1BC6 /* TabSwipeControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +95,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DC2A8AF121098E5A0052C236 /* Products */ = {
+		DC0026092109A9F8009C1BC6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC2A8AF621098E5B0052C236 /* TabSwipeControl.framework */,
-				DC2A8AF821098E5B0052C236 /* TabSwipeControlTests.xctest */,
+				DC00260E2109A9F8009C1BC6 /* TabSwipeControl.framework */,
+				DC0026102109A9F8009C1BC6 /* TabSwipeControlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,7 +114,7 @@
 		DC97E20B21098A7500A5DB67 = {
 			isa = PBXGroup;
 			children = (
-				DC2A8AF021098E5A0052C236 /* TabSwipeControl.xcodeproj */,
+				DC0026082109A9F8009C1BC6 /* TabSwipeControl.xcodeproj */,
 				DC97E21621098A7600A5DB67 /* Examples */,
 				DC97E22B21098A7A00A5DB67 /* ExamplesTests */,
 				DC97E21521098A7600A5DB67 /* Products */,
@@ -163,12 +163,12 @@
 				DC97E21021098A7600A5DB67 /* Sources */,
 				DC97E21121098A7600A5DB67 /* Frameworks */,
 				DC97E21221098A7600A5DB67 /* Resources */,
-				DC2A8B0A21098ED80052C236 /* Embed Frameworks */,
+				DC0026152109AA02009C1BC6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DC2A8B0921098ED80052C236 /* PBXTargetDependency */,
+				DC0026142109AA01009C1BC6 /* PBXTargetDependency */,
 			);
 			name = Examples;
 			productName = Examples;
@@ -225,8 +225,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = DC2A8AF121098E5A0052C236 /* Products */;
-					ProjectRef = DC2A8AF021098E5A0052C236 /* TabSwipeControl.xcodeproj */;
+					ProductGroup = DC0026092109A9F8009C1BC6 /* Products */;
+					ProjectRef = DC0026082109A9F8009C1BC6 /* TabSwipeControl.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -238,18 +238,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		DC2A8AF621098E5B0052C236 /* TabSwipeControl.framework */ = {
+		DC00260E2109A9F8009C1BC6 /* TabSwipeControl.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = TabSwipeControl.framework;
-			remoteRef = DC2A8AF521098E5B0052C236 /* PBXContainerItemProxy */;
+			remoteRef = DC00260D2109A9F8009C1BC6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DC2A8AF821098E5B0052C236 /* TabSwipeControlTests.xctest */ = {
+		DC0026102109A9F8009C1BC6 /* TabSwipeControlTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = TabSwipeControlTests.xctest;
-			remoteRef = DC2A8AF721098E5B0052C236 /* PBXContainerItemProxy */;
+			remoteRef = DC00260F2109A9F8009C1BC6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -295,10 +295,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DC2A8B0921098ED80052C236 /* PBXTargetDependency */ = {
+		DC0026142109AA01009C1BC6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TabSwipeControl;
-			targetProxy = DC2A8B0821098ED80052C236 /* PBXContainerItemProxy */;
+			targetProxy = DC0026132109AA01009C1BC6 /* PBXContainerItemProxy */;
 		};
 		DC97E22A21098A7900A5DB67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -12,10 +12,16 @@ open class TabSwipeSegmentControl: UISegmentedControl {
     
     // MARK: - Public properties
     
-    var indicatorHeight: CGFloat!
+    open var indicatorColor: UIColor? {
+        didSet {
+            self.indicator.backgroundColor = indicatorColor
+        }
+    }
+    
     // MARK: - Private properties
     
     fileprivate var indicator: UIImageView!
+    fileprivate var indicatorHeight: CGFloat!
     fileprivate var tabExtraWidth: CGFloat! = 0
     fileprivate var indicatorMinX: CGFloat!
     fileprivate var indicatorWidth: CGFloat!
@@ -25,7 +31,7 @@ open class TabSwipeSegmentControl: UISegmentedControl {
     
     open override var selectedSegmentIndex: Int {
         didSet {
-            self.updateImageTintColor()
+            self.syncImageTintColor()
         }
     }
     
@@ -62,6 +68,7 @@ open class TabSwipeSegmentControl: UISegmentedControl {
         // Added Indicator
         self.indicatorHeight = 3
         self.indicator = UIImageView()
+        self.indicator.image?.withRenderingMode(.alwaysTemplate)
         self.indicator.backgroundColor = self.tintColor
         self.indicator.autoresizingMask = .init(rawValue: 0)
         self.addSubview(self.indicator)
@@ -115,7 +122,7 @@ open class TabSwipeSegmentControl: UISegmentedControl {
         var newRect = rect
         newRect.size.width = totalWidth
         self.frame = newRect
-        self.updateImageTintColor()
+        self.syncImageTintColor()
         
         DispatchQueue.main.async {
             self.indicatorMinX = self.getMinXForSegment(at: self.selectedSegmentIndex)
@@ -127,23 +134,23 @@ open class TabSwipeSegmentControl: UISegmentedControl {
     // MARK: - Public function
     open override func didChangeValue(forKey key: String) {
         if key == "selectedSegmentIndex" {
-            self.updateImageTintColor()
+            self.syncImageTintColor()
         }
     }
     
-    func setTabExtraWidth(_ tabExtraWidth: CGFloat) {
+    open func setTabExtraWidth(_ tabExtraWidth: CGFloat) {
         self.tabExtraWidth = tabExtraWidth
         self.setNeedsDisplay()
     }
     
     open func setImageNormal(with color: UIColor) {
         self.imageNormalColor = color
-        self.updateImageTintColor()
+        self.syncImageTintColor()
     }
     
     open func setImageSelected(with color: UIColor) {
         self.imageSelectedColor = color
-        self.updateImageTintColor()
+        self.syncImageTintColor()
     }
     
     open override func setTitleTextAttributes(_ attributes: [AnyHashable : Any]?, for state: UIControlState) {
@@ -170,11 +177,11 @@ open class TabSwipeSegmentControl: UISegmentedControl {
     // MARK: - Private function
     
     fileprivate func getMinXForSegment(at index: Int) -> CGFloat {
-        return self.segments[self.selectedSegmentIndex].frame.minX
+        return self.segments[index].frame.minX
     }
     
     fileprivate func getWithForSegment(at index: Int) -> CGFloat {
-        return self.segments[self.selectedSegmentIndex].frame.size.width
+        return self.segments[index].frame.width
     }
     
     fileprivate func updateIndicatorWith(_ animation: Bool) {
@@ -191,15 +198,15 @@ open class TabSwipeSegmentControl: UISegmentedControl {
         }
     }
     
-    fileprivate func updateImageTintColor() {
+    fileprivate func syncImageTintColor() {
         let segments = self.segments
         for segment in segments {
             for view in segment.subviews {
                 if view is UIImageView {
                     if segments.index(of: segment) == self.selectedSegmentIndex {
-                        view.tintColor = imageSelectedColor
+                        view.tintColor = self.imageSelectedColor
                     } else {
-                        view.tintColor = imageNormalColor
+                        view.tintColor = self.imageNormalColor
                     }
                 }
             }

@@ -28,20 +28,20 @@ class ViewController: UIViewController {
         let metrics: [String: Any] = [
             "topLayoutGuide": topLayoutGuide
         ]
-        let items = ["Home", "Category", "Main", "New tab", "Other tab"]
-        let tabSwipeSegmentControl = TabSwipeSegmentControl(items: items)
-        tabSwipeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(tabSwipeSegmentControl)
+        let items = ["Home", "Category", "Main", "New tab with long text in content", "Other tab"]
+        let tabSwipeToolbar = TabSwipeToolbar(items)
+        tabSwipeToolbar.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(tabSwipeToolbar)
         
         let views: [String: Any] = [
-            "tabSwipeSegmentControl": tabSwipeSegmentControl
+            "tabSwipeToolbar": tabSwipeToolbar
         ]
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-topLayoutGuide-[tabSwipeSegmentControl(44)]",
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-topLayoutGuide-[tabSwipeToolbar(44)]",
                                                                 options: .init(rawValue: 0),
                                                                 metrics: metrics,
                                                                 views: views))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[tabSwipeSegmentControl]",
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[tabSwipeToolbar]|",
                                                                 options: .init(rawValue: 0),
                                                                 metrics: metrics,
                                                                 views: views))

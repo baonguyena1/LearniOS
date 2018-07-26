@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC0025E02109A685009C1BC6 /* TabSwipeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0025DF2109A685009C1BC6 /* TabSwipeScrollView.swift */; };
+		DC00261E2109B144009C1BC6 /* TabSwipeToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00261D2109B144009C1BC6 /* TabSwipeToolbar.swift */; };
 		DC2A8AEE21098D570052C236 /* TabSwipeSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC97E209210960BE00A5DB67 /* TabSwipeSegmentControl.swift */; };
 		DC41134621095FB70036A5FD /* TabSwipeControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC41133C21095FB70036A5FD /* TabSwipeControl.framework */; };
 		DC41134B21095FB70036A5FD /* TabSwipeControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC41134A21095FB70036A5FD /* TabSwipeControlTests.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC0025DF2109A685009C1BC6 /* TabSwipeScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSwipeScrollView.swift; sourceTree = "<group>"; };
+		DC00261D2109B144009C1BC6 /* TabSwipeToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSwipeToolbar.swift; sourceTree = "<group>"; };
 		DC41133C21095FB70036A5FD /* TabSwipeControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TabSwipeControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC41133F21095FB70036A5FD /* TabSwipeControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabSwipeControl.h; sourceTree = "<group>"; };
 		DC41134021095FB70036A5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 				DC41133F21095FB70036A5FD /* TabSwipeControl.h */,
 				DC41134021095FB70036A5FD /* Info.plist */,
 				DC97E209210960BE00A5DB67 /* TabSwipeSegmentControl.swift */,
+				DC0025DF2109A685009C1BC6 /* TabSwipeScrollView.swift */,
+				DC00261D2109B144009C1BC6 /* TabSwipeToolbar.swift */,
 			);
 			path = TabSwipeControl;
 			sourceTree = "<group>";
@@ -198,6 +204,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC0025E02109A685009C1BC6 /* TabSwipeScrollView.swift in Sources */,
+				DC00261E2109B144009C1BC6 /* TabSwipeToolbar.swift in Sources */,
 				DC2A8AEE21098D570052C236 /* TabSwipeSegmentControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
