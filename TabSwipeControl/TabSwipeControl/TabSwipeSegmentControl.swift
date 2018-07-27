@@ -18,6 +18,8 @@ open class TabSwipeSegmentControl: UISegmentedControl {
         }
     }
     
+    open var indicatorPosition: UIBarPosition! = .bottom
+    
     // MARK: - Private properties
     
     fileprivate var indicator: UIImageView!
@@ -186,7 +188,10 @@ open class TabSwipeSegmentControl: UISegmentedControl {
     
     fileprivate func updateIndicatorWith(_ animation: Bool) {
         var indicatorY: CGFloat = 0.0
-        indicatorY = self.frame.size.height - self.indicatorHeight
+        
+        if self.indicatorPosition == .bottom {
+            indicatorY = self.frame.size.height - self.indicatorHeight            
+        }
         UIView.animate(withDuration: animation ? 0.3 : 0) {
             
             var rect = self.indicator.frame
