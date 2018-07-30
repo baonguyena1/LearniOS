@@ -44,18 +44,31 @@
                                                     <color key="textColor" red="0.83529411760000005" green="0.12549019610000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="55S-tI-8Jr">
+                                                    <rect key="frame" x="134.5" y="96.5" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="heQ-A2-GpJ">
+                                                    <rect key="frame" x="0.0" y="209" width="289" height="2"/>
+                                                </progressView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="RKk-EE-jrh" secondAttribute="bottom" constant="20" id="LM3-8D-CQP"/>
+                                            <constraint firstItem="heQ-A2-GpJ" firstAttribute="leading" secondItem="nN6-fo-Bj7" secondAttribute="leading" id="0bL-8f-Q7U"/>
+                                            <constraint firstAttribute="bottom" secondItem="heQ-A2-GpJ" secondAttribute="bottom" constant="2" id="5ee-mk-abv"/>
                                             <constraint firstAttribute="bottom" secondItem="Iwu-uA-f7F" secondAttribute="bottom" id="S1D-2o-oKt"/>
+                                            <constraint firstItem="55S-tI-8Jr" firstAttribute="centerX" secondItem="nN6-fo-Bj7" secondAttribute="centerX" id="T2a-Zv-zgm"/>
                                             <constraint firstAttribute="trailing" secondItem="Iwu-uA-f7F" secondAttribute="trailing" id="Tdq-4L-z2a"/>
+                                            <constraint firstAttribute="trailing" secondItem="heQ-A2-GpJ" secondAttribute="trailing" id="ax2-4x-li1"/>
                                             <constraint firstItem="Iwu-uA-f7F" firstAttribute="top" secondItem="nN6-fo-Bj7" secondAttribute="top" id="dAc-gq-How"/>
+                                            <constraint firstItem="55S-tI-8Jr" firstAttribute="centerY" secondItem="nN6-fo-Bj7" secondAttribute="centerY" id="hDc-bc-zNT"/>
+                                            <constraint firstItem="heQ-A2-GpJ" firstAttribute="top" secondItem="RKk-EE-jrh" secondAttribute="bottom" constant="16" id="ioy-mw-kcs"/>
                                             <constraint firstItem="Iwu-uA-f7F" firstAttribute="leading" secondItem="nN6-fo-Bj7" secondAttribute="leading" id="oQV-p9-drV"/>
                                             <constraint firstItem="RKk-EE-jrh" firstAttribute="centerX" secondItem="nN6-fo-Bj7" secondAttribute="centerX" id="oWf-zf-ZLS"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="image" destination="Iwu-uA-f7F" id="LoA-gR-tpl"/>
+                                            <outlet property="indicator" destination="55S-tI-8Jr" id="a6K-OE-jW2"/>
+                                            <outlet property="progressView" destination="heQ-A2-GpJ" id="6Z3-Zi-NLr"/>
                                             <outlet property="status" destination="RKk-EE-jrh" id="rbL-TT-0Cm"/>
                                         </connections>
                                     </collectionViewCell>
@@ -74,13 +87,16 @@
                                     <barButtonItem title="1" id="abk-ab-Rp8"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Hd5-gb-eVV"/>
                                     <barButtonItem style="plain" id="eOS-hk-sYp">
-                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" id="LbL-B6-0vA">
-                                            <rect key="frame" x="44" y="5" width="289" height="34"/>
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="6" id="LbL-B6-0vA">
+                                            <rect key="frame" x="51.5" y="5" width="289" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="VAh-a3-27t"/>
+                                            </connections>
                                         </slider>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="CXB-b3-DNy"/>
-                                    <barButtonItem title="10" id="Xf8-Iw-XOl"/>
+                                    <barButtonItem title="6" id="Xf8-Iw-XOl"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -98,6 +114,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Photo" id="Fri-X5-xws"/>
                     <connections>
+                        <outlet property="maxValueButton" destination="Xf8-Iw-XOl" id="Fte-Md-Hc1"/>
+                        <outlet property="minValueButton" destination="abk-ab-Rp8" id="DnZ-ch-fBL"/>
                         <outlet property="photoCollectionView" destination="5s4-aT-xj2" id="GsD-xK-fcY"/>
                     </connections>
                 </viewController>

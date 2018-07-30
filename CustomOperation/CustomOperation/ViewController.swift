@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     fileprivate var photos: [PhotoRecord] = []
+    @IBOutlet weak var minValueButton: UIBarButtonItem!
+    @IBOutlet weak var maxValueButton: UIBarButtonItem!
     
     fileprivate lazy var photoDictionary: [String: String] = {
         let path = Bundle.main.path(forResource: "ClassicPhotosDictionary", ofType: "plist")
@@ -25,6 +27,15 @@ class ViewController: UIViewController {
         self.photos = self.photoDictionary.map { (name, value) -> PhotoRecord in
             return PhotoRecord(urlString: value)
         }
+    }
+    
+    @IBAction func valueChanged(_ sender: UISlider) {
+        let value = Int(sender.value)
+        if value == QueueManager.shared.numberOperation {
+            return
+        }
+        print("number of operation", value)
+        QueueManager.shared.queue.maxConcurrentOperationCount = value
     }
 
     fileprivate func startDownloader(_ photo: PhotoRecord, at indexPath: IndexPath) {
@@ -57,16 +68,11 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCell
         let photo = self.photos[indexPath.row]
-        cell.image.image = photo.image
-        cell.status.text = photo.state.description
+        cell.photo = photo
         
         switch photo.state {
         case .new:
         self.startDownloader(photo, at: indexPath)
-        case .downloaded:
-            cell.image.image = photo.image
-        case .failed:
-            cell.image.image = UIImage(named: "Failed")
         default: break
         }
         

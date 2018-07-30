@@ -13,9 +13,13 @@ struct QueueManager {
     
     var queue: OperationQueue!
     
+    var numberOperation: Int {
+        return queue.maxConcurrentOperationCount
+    }
+    
     private init() {
         queue = OperationQueue()
         queue.name = "QueueManager"
-        queue.maxConcurrentOperationCount = 6
+        queue.maxConcurrentOperationCount = 1
     }
 }

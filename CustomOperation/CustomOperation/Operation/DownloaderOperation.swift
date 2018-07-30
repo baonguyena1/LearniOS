@@ -10,35 +10,87 @@ import UIKit
 
 class DownloaderOperation: Operation {
     
-    var photo: PhotoRecord
+    enum State: String {
+        case ready = "Ready"
+        case executing = "Executing"
+        case finished = "Finished"
+        fileprivate var keyPath: String {
+            return "is" + self.rawValue
+        }
+    }
     
-    init(_ photo: PhotoRecord) {
-        self.photo = photo
+    // MARK: - properties
+    
+    var photo: PhotoRecord!
+    fileprivate var task: URLSessionDataTask?
+    
+    var state = State.ready {
+        willSet {
+            willChangeValue(forKey: state.keyPath)
+            willChangeValue(forKey: newValue.keyPath)
+        }
+        didSet {
+            didChangeValue(forKey: state.keyPath)
+            didChangeValue(forKey: oldValue.keyPath)
+        }
+    }
+    
+    override var isAsynchronous: Bool {
+        return true
+    }
+    
+    override var isExecuting: Bool {
+        return state == .executing
+    }
+    
+    override var isFinished: Bool {
+        return state == .finished
+    }
+    
+    override func start() {
+        if self.isCancelled {
+            self.state = .finished
+        } else {
+            self.state = .ready
+            main()
+        }
     }
     
     override func main() {
         if self.isCancelled {
-            photo.state = .failed
+            self.state = .finished
             return
         }
-        let url = URL(string: photo.urlString)
-        if url == nil {
-            photo.state = .failed
-            return
-        }
-        let imageData = try? Data(contentsOf: url!)
-
-        if self.isCancelled {
-            photo.state = .failed
-            return
-        }
-        if imageData != nil {
-            let image = UIImage(data: imageData!)
-            photo.state = .downloaded
-            photo.image = image
-        } else {
-            photo.state = .failed
-        }
+        self.state = .executing
+        photo.state = .downloading
+        task?.resume()
     }
     
+    override func cancel() {
+        super.cancel()
+        task?.cancel()
+    }
+    
+    init(_ photo: PhotoRecord) {
+        super.init()
+        self.photo = photo
+        guard let url = URL(string: photo.urlString) else {
+            photo.state = .failed
+            super.cancel()
+            return
+        }
+
+        self.task = URLSession(configuration: .default)
+            .dataTask(with: url) { [weak self] (data, response, error) in
+
+            if error != nil || data == nil {
+                photo.state = .failed
+            } else {
+                let image = UIImage(data: data!)
+                photo.state = .downloaded
+                photo.image = image
+            }
+            self?.state = .finished
+        }
+    }
 }
