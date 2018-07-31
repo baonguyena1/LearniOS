@@ -37,4 +37,10 @@ class PhotoManager {
         }
         return progress
     }
+    
+    func reset() {
+        for photo in photos {
+            photo.reset()
+        }
+    }
 }

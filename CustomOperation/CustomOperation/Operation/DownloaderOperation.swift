@@ -25,7 +25,7 @@ class DownloaderOperation: Operation, ProgressReporting {
     
     fileprivate var photo: PhotoRecord
     fileprivate var task: URLSessionDataTask? {
-        return photo.downloader.downloadTask
+        return photo.downloader?.downloadTask
     }
     var progress: Progress
     
@@ -57,7 +57,7 @@ class DownloaderOperation: Operation, ProgressReporting {
             state = .finished
         } else {
             state = .ready
-            photo.downloader.startImport()
+            photo.downloader?.startImport()
             main()
         }
     }
@@ -93,8 +93,8 @@ class DownloaderOperation: Operation, ProgressReporting {
         photo.state = .queueing
         progress = Progress(totalUnitCount: unitCount)
         super.init()
-        progress.addChild(photo.downloader.progress, withPendingUnitCount: unitCount)
-        photo.downloader.completionHandler = { [weak self] data, error in
+        progress.addChild(photo.downloader!.progress, withPendingUnitCount: unitCount)
+        photo.downloader?.completionHandler = { [weak self] data, error in
             
             guard let strongSelf = self else { return }
 

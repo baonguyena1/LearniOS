@@ -62,7 +62,8 @@ class PhotoCell: UICollectionViewCell {
     }
     
     fileprivate func updateProgressView() {
-        guard let progress = photo?.downloader.progress else {
+        guard let progress = photo?.downloader?.progress else {
+            progressView.progress = 0.0
             return
         }
         progressView.progress = Float(progress.fractionCompleted)

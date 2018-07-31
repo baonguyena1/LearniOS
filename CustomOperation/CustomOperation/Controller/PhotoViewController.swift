@@ -23,13 +23,18 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet var importButton: UIBarButtonItem!
+    @IBOutlet var pauseButton: UIBarButtonItem!
+    @IBOutlet var cancelButton: UIBarButtonItem!
+    @IBOutlet var resetButton: UIBarButtonItem!
+    @IBOutlet var resumeButton: UIBarButtonItem!
+    
     fileprivate var photoManager: PhotoManager? = nil {
         didSet {
             photoCollectionView.reloadData()
         }
     }
-    @IBOutlet weak var minValueButton: UIBarButtonItem!
-    @IBOutlet weak var maxValueButton: UIBarButtonItem!
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var progressView: UIProgressView!
     
     fileprivate lazy var photoDictionary: [String: String] = {
@@ -40,21 +45,23 @@ class PhotoViewController: UIViewController {
     
     fileprivate var progress: Progress! {
         willSet {
-            guard let formerProgress = progress else {
-                return
-            }
-            for keyPath in overalProgressObservedKeys {
-                formerProgress.removeObserver(self, forKeyPath: keyPath, context: &ProgressObserverContext)
+            if let formerProgress = progress {
+                
+                for keyPath in overalProgressObservedKeys {
+                    formerProgress.removeObserver(self, forKeyPath: keyPath, context: &ProgressObserverContext)
+                }
             }
         }
         
         didSet {
-            guard let newProgress = progress else {
-                return
+            if let newProgress = progress {
+                
+                for keyPath in overalProgressObservedKeys {
+                    newProgress.addObserver(self, forKeyPath: keyPath, options: [], context: &ProgressObserverContext)
+                }
             }
-            for keyPath in overalProgressObservedKeys {
-                newProgress.addObserver(self, forKeyPath: keyPath, options: [], context: &ProgressObserverContext)
-            }
+            updateProgressView()
+            updateToolbar()
         }
     }
     
@@ -66,14 +73,11 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateToolbar()
+        initialData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        startImportProgress()
-    }
-    
+    // MARK: - Actions
     @IBAction func valueChanged(_ sender: UISlider) {
         let value = Int(sender.value)
         if value == QueueManager.shared.numberOperation {
@@ -82,18 +86,43 @@ class PhotoViewController: UIViewController {
         QueueManager.shared.queue.maxConcurrentOperationCount = value
     }
     
-    fileprivate func startImportProgress() {
+    @IBAction func importTapped(_ sender: UIBarButtonItem) {
+        initialData()
+        progress = photoManager?.importProgress()
+    }
+    
+    @IBAction func pauseTapped(_ sender: UIBarButtonItem) {
+        progress.pause()
+        QueueManager.shared.queue.isSuspended = true
+    }
+    
+    @IBAction func resumeTapped(_ sender: UIBarButtonItem) {
+        progress.resume()
+        QueueManager.shared.queue.isSuspended = false
+    }
+    
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        progress.cancel()
+        QueueManager.shared.queue.cancelAllOperations() 
+    }
+    
+    @IBAction func resetTapped(_ sender: UIBarButtonItem) {
+        photoManager?.reset()
+        progress = nil
+    }
+    
+    fileprivate func initialData() {
         let photos = self.photoDictionary.map { (name, value) -> PhotoRecord in
             return PhotoRecord(urlString: value)
         }
         photoManager = PhotoManager(photos)
-        progress = photoManager?.importProgress()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &ProgressObserverContext {
             OperationQueue.main.addOperation {
                 self.updateProgressView()
+                self.updateToolbar()
             }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
@@ -102,11 +131,35 @@ class PhotoViewController: UIViewController {
     
     fileprivate func updateProgressView() {
         guard let progress = self.progress else {
+            progressView.progress = 0.0
+            descriptionLabel.text = ""
             return
         }
         progressView.progress = Float(progress.fractionCompleted)
         descriptionLabel.text = progress.localizedAdditionalDescription
 //        print(progress.localizedAdditionalDescription, progress.localizedDescription)
+    }
+    
+    fileprivate func updateToolbar() {
+        var items = [UIBarButtonItem]()
+        if let progress = progress {
+            
+            if progressIsFinished || progress.isCancelled {
+                items.append(resetButton)
+            } else {
+                items.append(cancelButton)
+                if progress.isPaused {
+                    items.append(resumeButton)
+                } else {
+                    items.append(pauseButton)
+                }
+            }
+            
+        } else {
+            items = [importButton]
+        }
+        
+        toolbar.setItems(items, animated: true)
     }
 
 }

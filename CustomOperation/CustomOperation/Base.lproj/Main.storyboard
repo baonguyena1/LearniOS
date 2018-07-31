@@ -39,16 +39,20 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="289" height="213"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKk-EE-jrh">
-                                                    <rect key="frame" x="123.5" y="172.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.83529411760000005" green="0.12549019610000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="123" y="173" width="43" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <activityIndicatorView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="55S-tI-8Jr">
                                                     <rect key="frame" x="134.5" y="96.5" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="heQ-A2-GpJ">
-                                                    <rect key="frame" x="0.0" y="209.5" width="289" height="2.5"/>
+                                                    <rect key="frame" x="0.0" y="210" width="289" height="2"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="rzc-Ar-M7n"/>
+                                                    </constraints>
+                                                    <color key="progressTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </progressView>
                                             </subviews>
                                         </view>
@@ -78,16 +82,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aV2-Lz-Eex"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LII-MG-e7S">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem title="Start Import" id="zd6-C7-AN8"/>
-                                    <barButtonItem title="Pause" id="wFF-z5-wun"/>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="brJ-gN-oHT"/>
-                                    <barButtonItem title="Cancel" id="AhS-Ol-X8R"/>
-                                    <barButtonItem title="Reset" id="ACn-HY-oiZ"/>
-                                </items>
-                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKL-Wf-dgI">
                                 <rect key="frame" x="0.0" y="535" width="375" height="44"/>
                                 <subviews>
@@ -149,6 +143,10 @@
                                     <barButtonItem title="4" id="Xf8-Iw-XOl"/>
                                 </items>
                             </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LII-MG-e7S">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -172,14 +170,43 @@
                     </view>
                     <navigationItem key="navigationItem" title="Photo" id="Fri-X5-xws"/>
                     <connections>
+                        <outlet property="cancelButton" destination="R9x-X6-3QR" id="oAL-9M-NP3"/>
                         <outlet property="descriptionLabel" destination="XMq-el-s2R" id="ht7-J1-7rf"/>
-                        <outlet property="maxValueButton" destination="Xf8-Iw-XOl" id="Fte-Md-Hc1"/>
-                        <outlet property="minValueButton" destination="abk-ab-Rp8" id="DnZ-ch-fBL"/>
+                        <outlet property="importButton" destination="gkv-Ew-Leg" id="jOg-BP-D4h"/>
+                        <outlet property="pauseButton" destination="AJd-9w-l3C" id="Jes-aJ-dnJ"/>
                         <outlet property="photoCollectionView" destination="5s4-aT-xj2" id="GsD-xK-fcY"/>
                         <outlet property="progressView" destination="wGo-tL-XqD" id="Ram-pT-66l"/>
+                        <outlet property="resetButton" destination="B07-Km-5wT" id="LFU-EH-Stg"/>
+                        <outlet property="resumeButton" destination="DFr-VK-De9" id="tkb-4R-E02"/>
+                        <outlet property="toolbar" destination="LII-MG-e7S" id="lAz-lg-QWV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Import" id="gkv-Ew-Leg" userLabel="Import">
+                    <connections>
+                        <action selector="importTapped:" destination="BYZ-38-t0r" id="59G-Tk-dcf"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Pause" id="AJd-9w-l3C" userLabel="Pause">
+                    <connections>
+                        <action selector="pauseTapped:" destination="BYZ-38-t0r" id="0gj-uk-rRD"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Resume" id="DFr-VK-De9" userLabel="Resume">
+                    <connections>
+                        <action selector="resumeTapped:" destination="BYZ-38-t0r" id="JWG-SM-MvQ"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Cancel" id="R9x-X6-3QR" userLabel="Cancel">
+                    <connections>
+                        <action selector="cancelTapped:" destination="BYZ-38-t0r" id="jyH-kr-TXz"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Reset" id="B07-Km-5wT" userLabel="Reset">
+                    <connections>
+                        <action selector="resetTapped:" destination="BYZ-38-t0r" id="B9P-hJ-9X0"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
