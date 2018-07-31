@@ -32,7 +32,9 @@ class PhotoDownload: NSObject, ProgressReporting {
     init(_ string: String) {
         urlString = string
         progress = Progress(totalUnitCount: unitCount)
-        super.init()
+    }
+    
+    func startImport() {
         guard let url = URL(string: urlString) else {
             progress.completedUnitCount = unitCount
             return

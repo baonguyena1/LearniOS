@@ -57,6 +57,7 @@ class DownloaderOperation: Operation, ProgressReporting {
             state = .finished
         } else {
             state = .ready
+            photo.downloader.startImport()
             main()
         }
     }

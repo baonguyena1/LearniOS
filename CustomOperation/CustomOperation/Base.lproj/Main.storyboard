@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5s4-aT-xj2">
-                                <rect key="frame" x="0.0" y="64" width="375" height="525.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="451"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GDc-wf-2gk">
                                     <size key="itemSize" width="289" height="213"/>
@@ -78,8 +78,58 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aV2-Lz-Eex"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcR-KE-tzs">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LII-MG-e7S">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Start Import" id="zd6-C7-AN8"/>
+                                    <barButtonItem title="Pause" id="wFF-z5-wun"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="brJ-gN-oHT"/>
+                                    <barButtonItem title="Cancel" id="AhS-Ol-X8R"/>
+                                    <barButtonItem title="Reset" id="ACn-HY-oiZ"/>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKL-Wf-dgI">
+                                <rect key="frame" x="0.0" y="535" width="375" height="44"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d0n-OP-Rtq">
+                                        <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ty0-Lu-vXP">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="34.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYs-MC-EIV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="34.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMq-el-s2R">
+                                                        <rect key="frame" x="179.5" y="0.0" width="163.5" height="34.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="wGo-tL-XqD">
+                                                <rect key="frame" x="0.0" y="42.5" width="343" height="2.5"/>
+                                                <color key="progressTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </progressView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.3983037243150685" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7TS-Qp-Nyh"/>
+                                    <constraint firstAttribute="trailing" secondItem="d0n-OP-Rtq" secondAttribute="trailing" constant="16" id="HOG-gW-X0D"/>
+                                    <constraint firstAttribute="bottom" secondItem="d0n-OP-Rtq" secondAttribute="bottom" id="RDi-Tn-XQw"/>
+                                    <constraint firstItem="d0n-OP-Rtq" firstAttribute="top" secondItem="NKL-Wf-dgI" secondAttribute="top" id="UBl-Rx-aVP"/>
+                                    <constraint firstItem="d0n-OP-Rtq" firstAttribute="leading" secondItem="NKL-Wf-dgI" secondAttribute="leading" constant="16" id="XHm-9t-MD1"/>
+                                </constraints>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcR-KE-tzs">
+                                <rect key="frame" x="0.0" y="579" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="VFz-EF-UTk"/>
                                 </constraints>
@@ -99,27 +149,30 @@
                                     <barButtonItem title="4" id="Xf8-Iw-XOl"/>
                                 </items>
                             </toolbar>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="wGo-tL-XqD">
-                                <rect key="frame" x="32" y="605.5" width="311" height="2.5"/>
-                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="NKL-Wf-dgI" firstAttribute="top" secondItem="5s4-aT-xj2" secondAttribute="bottom" constant="20" id="05A-L4-vAi"/>
+                            <constraint firstItem="LII-MG-e7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bgs-TQ-uUr"/>
                             <constraint firstItem="5s4-aT-xj2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KwK-ks-YGq"/>
-                            <constraint firstItem="WcR-KE-tzs" firstAttribute="top" secondItem="wGo-tL-XqD" secondAttribute="bottom" constant="16" id="SMg-yb-dNS"/>
-                            <constraint firstItem="WcR-KE-tzs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="UFu-RB-fWg"/>
+                            <constraint firstItem="LII-MG-e7S" firstAttribute="top" secondItem="WcR-KE-tzs" secondAttribute="bottom" id="PGV-rL-35a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LII-MG-e7S" secondAttribute="bottom" id="TQY-rG-5aS"/>
                             <constraint firstItem="WcR-KE-tzs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WMA-le-V74"/>
-                            <constraint firstItem="wGo-tL-XqD" firstAttribute="top" secondItem="5s4-aT-xj2" secondAttribute="bottom" constant="16" id="cm1-Bf-AwO"/>
-                            <constraint firstItem="wGo-tL-XqD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="mPg-mb-GKY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NKL-Wf-dgI" secondAttribute="trailing" id="X4h-30-LaA"/>
+                            <constraint firstItem="NKL-Wf-dgI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YMb-Gv-TO8"/>
+                            <constraint firstItem="LII-MG-e7S" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cVk-XK-frx"/>
+                            <constraint firstItem="LII-MG-e7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mU1-7G-TJ1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5s4-aT-xj2" secondAttribute="trailing" id="myt-0p-oEn"/>
                             <constraint firstItem="WcR-KE-tzs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pDZ-VV-9Oc"/>
                             <constraint firstItem="5s4-aT-xj2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pRR-PN-4n5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wGo-tL-XqD" secondAttribute="trailing" constant="16" id="vzS-OL-ZgB"/>
+                            <constraint firstItem="WcR-KE-tzs" firstAttribute="top" secondItem="NKL-Wf-dgI" secondAttribute="bottom" id="w4O-OM-Fod"/>
+                            <constraint firstItem="LII-MG-e7S" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zPI-GO-BQe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Photo" id="Fri-X5-xws"/>
                     <connections>
+                        <outlet property="descriptionLabel" destination="XMq-el-s2R" id="ht7-J1-7rf"/>
                         <outlet property="maxValueButton" destination="Xf8-Iw-XOl" id="Fte-Md-Hc1"/>
                         <outlet property="minValueButton" destination="abk-ab-Rp8" id="DnZ-ch-fBL"/>
                         <outlet property="photoCollectionView" destination="5s4-aT-xj2" id="GsD-xK-fcY"/>

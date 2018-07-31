@@ -22,6 +22,7 @@ class PhotoViewController: UIViewController {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
     fileprivate var photoManager: PhotoManager? = nil {
         didSet {
             photoCollectionView.reloadData()
@@ -104,6 +105,8 @@ class PhotoViewController: UIViewController {
             return
         }
         progressView.progress = Float(progress.fractionCompleted)
+        descriptionLabel.text = progress.localizedAdditionalDescription
+//        print(progress.localizedAdditionalDescription, progress.localizedDescription)
     }
 
 }
