@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5s4-aT-xj2">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="525.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GDc-wf-2gk">
                                     <size key="itemSize" width="289" height="213"/>
@@ -39,7 +39,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="289" height="213"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKk-EE-jrh">
-                                                    <rect key="frame" x="123.5" y="172" width="42" height="21"/>
+                                                    <rect key="frame" x="123.5" y="172.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.83529411760000005" green="0.12549019610000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -47,8 +47,8 @@
                                                 <activityIndicatorView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="55S-tI-8Jr">
                                                     <rect key="frame" x="134.5" y="96.5" width="20" height="20"/>
                                                 </activityIndicatorView>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="heQ-A2-GpJ">
-                                                    <rect key="frame" x="0.0" y="209" width="289" height="2"/>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="heQ-A2-GpJ">
+                                                    <rect key="frame" x="0.0" y="209.5" width="289" height="2.5"/>
                                                 </progressView>
                                             </subviews>
                                         </view>
@@ -87,8 +87,8 @@
                                     <barButtonItem title="1" id="abk-ab-Rp8"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Hd5-gb-eVV"/>
                                     <barButtonItem style="plain" id="eOS-hk-sYp">
-                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="6" id="LbL-B6-0vA">
-                                            <rect key="frame" x="51.5" y="5" width="289" height="34"/>
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="4" id="LbL-B6-0vA">
+                                            <rect key="frame" x="51" y="5" width="289" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <connections>
                                                 <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="VAh-a3-27t"/>
@@ -96,19 +96,25 @@
                                         </slider>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="CXB-b3-DNy"/>
-                                    <barButtonItem title="6" id="Xf8-Iw-XOl"/>
+                                    <barButtonItem title="4" id="Xf8-Iw-XOl"/>
                                 </items>
                             </toolbar>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="wGo-tL-XqD">
+                                <rect key="frame" x="32" y="605.5" width="311" height="2.5"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WcR-KE-tzs" firstAttribute="top" secondItem="5s4-aT-xj2" secondAttribute="bottom" id="Eut-2n-4RF"/>
                             <constraint firstItem="5s4-aT-xj2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KwK-ks-YGq"/>
+                            <constraint firstItem="WcR-KE-tzs" firstAttribute="top" secondItem="wGo-tL-XqD" secondAttribute="bottom" constant="16" id="SMg-yb-dNS"/>
                             <constraint firstItem="WcR-KE-tzs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="UFu-RB-fWg"/>
                             <constraint firstItem="WcR-KE-tzs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WMA-le-V74"/>
+                            <constraint firstItem="wGo-tL-XqD" firstAttribute="top" secondItem="5s4-aT-xj2" secondAttribute="bottom" constant="16" id="cm1-Bf-AwO"/>
+                            <constraint firstItem="wGo-tL-XqD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="mPg-mb-GKY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5s4-aT-xj2" secondAttribute="trailing" id="myt-0p-oEn"/>
                             <constraint firstItem="WcR-KE-tzs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pDZ-VV-9Oc"/>
                             <constraint firstItem="5s4-aT-xj2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pRR-PN-4n5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wGo-tL-XqD" secondAttribute="trailing" constant="16" id="vzS-OL-ZgB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -117,6 +123,7 @@
                         <outlet property="maxValueButton" destination="Xf8-Iw-XOl" id="Fte-Md-Hc1"/>
                         <outlet property="minValueButton" destination="abk-ab-Rp8" id="DnZ-ch-fBL"/>
                         <outlet property="photoCollectionView" destination="5s4-aT-xj2" id="GsD-xK-fcY"/>
+                        <outlet property="progressView" destination="wGo-tL-XqD" id="Ram-pT-66l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

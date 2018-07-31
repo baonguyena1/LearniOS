@@ -8,7 +8,9 @@
 
 import UIKit
 
-class DownloaderOperation: Operation {
+let unitCount: Int64 = 10
+
+class DownloaderOperation: Operation, ProgressReporting {
     
     enum State: String {
         case ready = "Ready"
@@ -21,10 +23,12 @@ class DownloaderOperation: Operation {
     
     // MARK: - properties
     
-    var photo: PhotoRecord!
+    var photo: PhotoRecord
     fileprivate var task: URLSessionDataTask?
+    fileprivate var parentProgress: Progress?
+    var progress: Progress
     
-    var state = State.ready {
+    fileprivate var state = State.ready {
         willSet {
             willChangeValue(forKey: state.keyPath)
             willChangeValue(forKey: newValue.keyPath)
@@ -71,9 +75,17 @@ class DownloaderOperation: Operation {
         task?.cancel()
     }
     
-    init(_ photo: PhotoRecord) {
+    convenience override init() {
+        self.init()
+    }
+    
+    init(_ photoRecord: PhotoRecord) {
+        
+        photo = photoRecord
+        progress = Progress(totalUnitCount: unitCount)
         super.init()
-        self.photo = photo
+        self.name = photo.urlString
+        
         guard let url = URL(string: photo.urlString) else {
             photo.state = .failed
             super.cancel()
@@ -82,15 +94,22 @@ class DownloaderOperation: Operation {
 
         self.task = URLSession(configuration: .default)
             .dataTask(with: url) { [weak self] (data, response, error) in
+                
+                guard let strongSelf = self else { return }
+                
+                OperationQueue.main.addOperation({
+                    strongSelf.progress.completedUnitCount = Int64(strongSelf.progress.completedUnitCount) + 1
+                })
 
             if error != nil || data == nil {
-                photo.state = .failed
+                strongSelf.photo.state = .failed
             } else {
                 let image = UIImage(data: data!)
-                photo.state = .downloaded
-                photo.image = image
+                strongSelf.photo.state = .downloaded
+                strongSelf.photo.image = image
             }
-            self?.state = .finished
+            strongSelf.state = .finished
         }
     }
+    
 }

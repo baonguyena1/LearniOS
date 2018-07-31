@@ -8,13 +8,24 @@
 
 import UIKit
 
+private var ProgressObserverContext = 0
+
 class ViewController: UIViewController {
+    
+    fileprivate let overalProgressObservedKeys = [
+        "fractionCompleted",
+        "completedUnitCount",
+        "totalUnitCount",
+        "cancelled",
+        "paused"
+    ]
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     fileprivate var photos: [PhotoRecord] = []
     @IBOutlet weak var minValueButton: UIBarButtonItem!
     @IBOutlet weak var maxValueButton: UIBarButtonItem!
+    @IBOutlet weak var progressView: UIProgressView!
     
     fileprivate lazy var photoDictionary: [String: String] = {
         let path = Bundle.main.path(forResource: "ClassicPhotosDictionary", ofType: "plist")
@@ -22,11 +33,18 @@ class ViewController: UIViewController {
         return data as! [String: String]
     }()
     
+    fileprivate var progress: Progress!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.photos = self.photoDictionary.map { (name, value) -> PhotoRecord in
             return PhotoRecord(urlString: value)
         }
+        self.startProgress()
+        for photo in self.photos {
+            self.startDownloader(photo)
+        }
+        self.photoCollectionView.reloadData()
     }
     
     @IBAction func valueChanged(_ sender: UISlider) {
@@ -37,20 +55,44 @@ class ViewController: UIViewController {
         print("number of operation", value)
         QueueManager.shared.queue.maxConcurrentOperationCount = value
     }
-
-    fileprivate func startDownloader(_ photo: PhotoRecord, at indexPath: IndexPath) {
+    
+    fileprivate func startProgress() {
+        self.progress = Progress(totalUnitCount: Int64(self.photos.count))
+        for keyPath in overalProgressObservedKeys {
+            self.progress.addObserver(self, forKeyPath: keyPath, options: [], context: &ProgressObserverContext)
+        }
+        self.updateProgressView()
+    }
+    
+    fileprivate func startDownloader(_ photo: PhotoRecord) {
         if photo.state == .new {
             let photoDownloader = DownloaderOperation(photo)
             QueueManager.shared.queue.addOperation(photoDownloader)
+            self.progress.addChild(photoDownloader.progress, withPendingUnitCount: 1)
             
             photoDownloader.completionBlock = {
-                
                 DispatchQueue.main.async {
-                    self.photoCollectionView.reloadItems(at: [indexPath])
+                    self.photoCollectionView.reloadData()
                 }
             }
         }
-        
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if context == &ProgressObserverContext {
+            OperationQueue.main.addOperation {
+                self.updateProgressView()
+            }
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+    
+    fileprivate func updateProgressView() {
+        guard let progress = self.progress else {
+            return
+        }
+        progressView.progress = Float(progress.fractionCompleted)
     }
 
 }
@@ -70,11 +112,11 @@ extension ViewController: UICollectionViewDataSource {
         let photo = self.photos[indexPath.row]
         cell.photo = photo
         
-        switch photo.state {
-        case .new:
-        self.startDownloader(photo, at: indexPath)
-        default: break
-        }
+//        switch photo.state {
+//        case .new:
+//        self.startDownloader(photo, at: indexPath)
+//        default: break
+//        }
         
         return cell
     }
