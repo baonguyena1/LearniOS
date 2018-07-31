@@ -14,6 +14,7 @@ class PhotoCell: UICollectionViewCell {
     
     fileprivate let imageKeyPath = "image"
     fileprivate let stateKeyPath = "state"
+    fileprivate let fractionCompletedKeyPath = "downloader.progress.fractionCompleted"
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var status: UILabel!
@@ -27,6 +28,7 @@ class PhotoCell: UICollectionViewCell {
             }
             formerPhoto.removeObserver(self, forKeyPath: imageKeyPath, context: &photoCollectionViewCellObservationContext)
             formerPhoto.removeObserver(self, forKeyPath: stateKeyPath, context: &photoCollectionViewCellObservationContext)
+            formerPhoto.removeObserver(self, forKeyPath: fractionCompletedKeyPath, context: &photoCollectionViewCellObservationContext)
         }
         didSet {
             guard let newPhoto = photo else {
@@ -34,6 +36,7 @@ class PhotoCell: UICollectionViewCell {
             }
             newPhoto.addObserver(self, forKeyPath: imageKeyPath, options: [], context: &photoCollectionViewCellObservationContext)
             newPhoto.addObserver(self, forKeyPath: stateKeyPath, options: [], context: &photoCollectionViewCellObservationContext)
+            newPhoto.addObserver(self, forKeyPath: fractionCompletedKeyPath, options: [], context: &photoCollectionViewCellObservationContext)
             updateImageView()
             updateState()
             updateProgressView()
@@ -49,6 +52,8 @@ class PhotoCell: UICollectionViewCell {
                     strongSelf.updateImageView()
                 } else if keyPath == strongSelf.stateKeyPath {
                     strongSelf.updateState()
+                } else if keyPath == strongSelf.fractionCompletedKeyPath {
+                    strongSelf.updateProgressView()
                 }
             }
         } else {
@@ -57,11 +62,24 @@ class PhotoCell: UICollectionViewCell {
     }
     
     fileprivate func updateProgressView() {
-        
+        guard let progress = photo?.downloader.progress else {
+            return
+        }
+        progressView.progress = Float(progress.fractionCompleted)
     }
     
     fileprivate func updateState() {
         self.status.text = photo?.state.description
+        if let photo = self.photo {
+            switch photo.state {
+            case .downloading:
+                indicator.startAnimating()
+            case .downloaded, .failed:
+                indicator.stopAnimating()
+            default:
+                break
+            }
+        }
     }
     
     fileprivate func updateImageView() {

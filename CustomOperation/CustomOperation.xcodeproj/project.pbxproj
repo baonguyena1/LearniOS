@@ -15,6 +15,7 @@
 		DC090AB8210B2D49000F5B88 /* DownloaderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC090AB7210B2D49000F5B88 /* DownloaderOperation.swift */; };
 		DC0BB17421101B7500144A3A /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0BB17321101B7500144A3A /* PhotoManager.swift */; };
 		DC0BB17621102FA900144A3A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0BB17521102FA900144A3A /* PhotoViewController.swift */; };
+		DC0BB17A2110443A00144A3A /* PhotoDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0BB1792110443A00144A3A /* PhotoDownload.swift */; };
 		DCFC5629210EAA19008CF529 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC5628210EAA19008CF529 /* QueueManager.swift */; };
 		DCFC562C210EAAF7008CF529 /* PhotoRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC562B210EAAF7008CF529 /* PhotoRecord.swift */; };
 		DCFC562E210EAFD0008CF529 /* ClassicPhotosDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCFC562D210EAFD0008CF529 /* ClassicPhotosDictionary.plist */; };
@@ -44,6 +45,7 @@
 		DC090AB7210B2D49000F5B88 /* DownloaderOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderOperation.swift; sourceTree = "<group>"; };
 		DC0BB17321101B7500144A3A /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		DC0BB17521102FA900144A3A /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		DC0BB1792110443A00144A3A /* PhotoDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownload.swift; sourceTree = "<group>"; };
 		DCFC5628210EAA19008CF529 /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		DCFC562B210EAAF7008CF529 /* PhotoRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRecord.swift; sourceTree = "<group>"; };
 		DCFC562D210EAFD0008CF529 /* ClassicPhotosDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ClassicPhotosDictionary.plist; sourceTree = "<group>"; };
@@ -89,16 +91,14 @@
 		DC090A95210B2CF5000F5B88 /* CustomOperation */ = {
 			isa = PBXGroup;
 			children = (
+				DC090A96210B2CF5000F5B88 /* AppDelegate.swift */,
 				DC0BB17721102FBF00144A3A /* Controller */,
-				DCFC562D210EAFD0008CF529 /* ClassicPhotosDictionary.plist */,
 				DCFC562F210EB0C2008CF529 /* View */,
 				DCFC562A210EAAB5008CF529 /* Modal */,
 				DC090AB6210B2D19000F5B88 /* Operation */,
-				DC090A96210B2CF5000F5B88 /* AppDelegate.swift */,
 				DC090A9A210B2CF5000F5B88 /* Main.storyboard */,
-				DC090A9D210B2CF6000F5B88 /* Assets.xcassets */,
+				DC0BB1782110309B00144A3A /* Resource */,
 				DC090A9F210B2CF6000F5B88 /* LaunchScreen.storyboard */,
-				DC090AA2210B2CF6000F5B88 /* Info.plist */,
 			);
 			path = CustomOperation;
 			sourceTree = "<group>";
@@ -129,11 +129,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		DC0BB1782110309B00144A3A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DCFC562D210EAFD0008CF529 /* ClassicPhotosDictionary.plist */,
+				DC090A9D210B2CF6000F5B88 /* Assets.xcassets */,
+				DC090AA2210B2CF6000F5B88 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		DCFC562A210EAAB5008CF529 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
 				DCFC562B210EAAF7008CF529 /* PhotoRecord.swift */,
 				DC0BB17321101B7500144A3A /* PhotoManager.swift */,
+				DC0BB1792110443A00144A3A /* PhotoDownload.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -248,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC0BB17A2110443A00144A3A /* PhotoDownload.swift in Sources */,
 				DCFC5629210EAA19008CF529 /* QueueManager.swift in Sources */,
 				DC0BB17421101B7500144A3A /* PhotoManager.swift in Sources */,
 				DC090A97210B2CF5000F5B88 /* AppDelegate.swift in Sources */,
@@ -416,7 +428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MK2N7RD69E;
-				INFOPLIST_FILE = CustomOperation/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CustomOperation/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,7 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MK2N7RD69E;
-				INFOPLIST_FILE = CustomOperation/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CustomOperation/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

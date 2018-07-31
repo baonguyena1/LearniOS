@@ -8,9 +8,9 @@
 
 import UIKit
 
-let unitCount: Int64 = 1
 
 class DownloaderOperation: Operation, ProgressReporting {
+    fileprivate let unitCount: Int64 = 10
     
     fileprivate enum State: String {
         case ready = "Ready"
@@ -24,8 +24,9 @@ class DownloaderOperation: Operation, ProgressReporting {
     // MARK: - properties
     
     fileprivate var photo: PhotoRecord
-    fileprivate var task: URLSessionDataTask?
-    fileprivate var parentProgress: Progress?
+    fileprivate var task: URLSessionDataTask? {
+        return photo.downloader.downloadTask
+    }
     var progress: Progress
     
     fileprivate var state = State.ready {
@@ -53,19 +54,19 @@ class DownloaderOperation: Operation, ProgressReporting {
     
     override func start() {
         if self.isCancelled {
-            self.state = .finished
+            state = .finished
         } else {
-            self.state = .ready
+            state = .ready
             main()
         }
     }
     
     override func main() {
         if self.isCancelled {
-            self.state = .finished
+            state = .finished
             return
         }
-        self.state = .executing
+        state = .executing
         photo.state = .downloading
         if task != nil {
             task?.resume()
@@ -91,23 +92,14 @@ class DownloaderOperation: Operation, ProgressReporting {
         photo.state = .queueing
         progress = Progress(totalUnitCount: unitCount)
         super.init()
-        self.name = photo.urlString
-        
-        guard let url = URL(string: photo.urlString) else {
-            return
-        }
+        progress.addChild(photo.downloader.progress, withPendingUnitCount: unitCount)
+        photo.downloader.completionHandler = { [weak self] data, error in
+            
+            guard let strongSelf = self else { return }
 
-        let configuration = URLSessionConfiguration.default
-        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
-        configuration.urlCache = nil
-        self.task = URLSession(configuration: configuration)
-            .dataTask(with: url) { [weak self] (data, response, error) in
-                
-                guard let strongSelf = self else { return }
-                
-                OperationQueue.main.addOperation({
-                    strongSelf.progress.completedUnitCount = Int64(strongSelf.progress.completedUnitCount) + 1
-                })
+            OperationQueue.main.addOperation({
+                strongSelf.progress.completedUnitCount = Int64(strongSelf.progress.completedUnitCount) + 1
+            })
 
             if error != nil || data == nil {
                 strongSelf.photo.state = .failed

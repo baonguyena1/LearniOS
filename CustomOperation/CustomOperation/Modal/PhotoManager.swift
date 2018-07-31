@@ -30,6 +30,7 @@ class PhotoManager {
         let progress = Progress(totalUnitCount: Int64(self.photos.count))
         for photo in photos {
             let downloadOperation = DownloaderOperation(photo)
+            
             downloadOperation.completionBlock = completion
             progress.addChild(downloadOperation.progress, withPendingUnitCount: 1)
             QueueManager.shared.addOperation(downloadOperation)

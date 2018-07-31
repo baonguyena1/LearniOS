@@ -32,8 +32,10 @@ class PhotoRecord: NSObject {
     let urlString: String
     @objc dynamic var image = UIImage(named: "Placeholder")
     @objc dynamic var state = PhotoState.new
+    @objc dynamic var downloader: PhotoDownload
     
     init(urlString: String) {
         self.urlString = urlString
+        downloader = PhotoDownload(urlString)
     }
 }
