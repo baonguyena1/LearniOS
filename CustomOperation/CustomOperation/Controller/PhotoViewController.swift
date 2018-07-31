@@ -10,7 +10,7 @@ import UIKit
 
 private var ProgressObserverContext = 0
 
-class ViewController: UIViewController {
+class PhotoViewController: UIViewController {
     
     fileprivate let overalProgressObservedKeys = [
         "fractionCompleted",
@@ -22,7 +22,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
-    fileprivate var photos: [PhotoRecord] = []
+    fileprivate var photoManager: PhotoManager? = nil {
+        didSet {
+            photoCollectionView.reloadData()
+        }
+    }
     @IBOutlet weak var minValueButton: UIBarButtonItem!
     @IBOutlet weak var maxValueButton: UIBarButtonItem!
     @IBOutlet weak var progressView: UIProgressView!
@@ -33,18 +37,40 @@ class ViewController: UIViewController {
         return data as! [String: String]
     }()
     
-    fileprivate var progress: Progress!
+    fileprivate var progress: Progress! {
+        willSet {
+            guard let formerProgress = progress else {
+                return
+            }
+            for keyPath in overalProgressObservedKeys {
+                formerProgress.removeObserver(self, forKeyPath: keyPath, context: &ProgressObserverContext)
+            }
+        }
+        
+        didSet {
+            guard let newProgress = progress else {
+                return
+            }
+            for keyPath in overalProgressObservedKeys {
+                newProgress.addObserver(self, forKeyPath: keyPath, options: [], context: &ProgressObserverContext)
+            }
+        }
+    }
+    
+    fileprivate var progressIsFinished: Bool {
+        let completed = progress.completedUnitCount
+        let total = progress.totalUnitCount
+        return (completed >= total && total > 0 && completed > 0) || (completed > 0 && total == 0)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.photos = self.photoDictionary.map { (name, value) -> PhotoRecord in
-            return PhotoRecord(urlString: value)
-        }
-        self.startProgress()
-        for photo in self.photos {
-            self.startDownloader(photo)
-        }
-        self.photoCollectionView.reloadData()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startImportProgress()
     }
     
     @IBAction func valueChanged(_ sender: UISlider) {
@@ -52,30 +78,15 @@ class ViewController: UIViewController {
         if value == QueueManager.shared.numberOperation {
             return
         }
-        print("number of operation", value)
         QueueManager.shared.queue.maxConcurrentOperationCount = value
     }
     
-    fileprivate func startProgress() {
-        self.progress = Progress(totalUnitCount: Int64(self.photos.count))
-        for keyPath in overalProgressObservedKeys {
-            self.progress.addObserver(self, forKeyPath: keyPath, options: [], context: &ProgressObserverContext)
+    fileprivate func startImportProgress() {
+        let photos = self.photoDictionary.map { (name, value) -> PhotoRecord in
+            return PhotoRecord(urlString: value)
         }
-        self.updateProgressView()
-    }
-    
-    fileprivate func startDownloader(_ photo: PhotoRecord) {
-        if photo.state == .new {
-            let photoDownloader = DownloaderOperation(photo)
-            QueueManager.shared.queue.addOperation(photoDownloader)
-            self.progress.addChild(photoDownloader.progress, withPendingUnitCount: 1)
-            
-            photoDownloader.completionBlock = {
-                DispatchQueue.main.async {
-                    self.photoCollectionView.reloadData()
-                }
-            }
-        }
+        photoManager = PhotoManager(photos)
+        progress = photoManager?.importProgress()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -97,32 +108,21 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
+extension PhotoViewController: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.photos.count
+        return self.photoManager == nil ? 0 : self.photoManager!.numberOfItem
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCell
-        let photo = self.photos[indexPath.row]
+        let photo = photoManager!.photo(at: indexPath.row)
         cell.photo = photo
-        
-//        switch photo.state {
-//        case .new:
-//        self.startDownloader(photo, at: indexPath)
-//        default: break
-//        }
-        
         return cell
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension PhotoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width/2.0 - 10/2
         return CGSize(width: width, height: width)

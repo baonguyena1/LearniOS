@@ -22,4 +22,8 @@ struct QueueManager {
         queue.name = "QueueManager"
         queue.maxConcurrentOperationCount = 1
     }
+    
+    func addOperation(_ operation: Operation) {
+        self.queue.addOperation(operation)
+    }
 }

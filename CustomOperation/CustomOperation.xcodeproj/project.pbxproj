@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		DC090A97210B2CF5000F5B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC090A96210B2CF5000F5B88 /* AppDelegate.swift */; };
-		DC090A99210B2CF5000F5B88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC090A98210B2CF5000F5B88 /* ViewController.swift */; };
 		DC090A9C210B2CF5000F5B88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC090A9A210B2CF5000F5B88 /* Main.storyboard */; };
 		DC090A9E210B2CF6000F5B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC090A9D210B2CF6000F5B88 /* Assets.xcassets */; };
 		DC090AA1210B2CF6000F5B88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC090A9F210B2CF6000F5B88 /* LaunchScreen.storyboard */; };
 		DC090AAC210B2CF6000F5B88 /* CustomOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC090AAB210B2CF6000F5B88 /* CustomOperationTests.swift */; };
 		DC090AB8210B2D49000F5B88 /* DownloaderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC090AB7210B2D49000F5B88 /* DownloaderOperation.swift */; };
+		DC0BB17421101B7500144A3A /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0BB17321101B7500144A3A /* PhotoManager.swift */; };
+		DC0BB17621102FA900144A3A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0BB17521102FA900144A3A /* PhotoViewController.swift */; };
 		DCFC5629210EAA19008CF529 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC5628210EAA19008CF529 /* QueueManager.swift */; };
 		DCFC562C210EAAF7008CF529 /* PhotoRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC562B210EAAF7008CF529 /* PhotoRecord.swift */; };
 		DCFC562E210EAFD0008CF529 /* ClassicPhotosDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCFC562D210EAFD0008CF529 /* ClassicPhotosDictionary.plist */; };
@@ -33,7 +34,6 @@
 /* Begin PBXFileReference section */
 		DC090A93210B2CF5000F5B88 /* CustomOperation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomOperation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC090A96210B2CF5000F5B88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC090A98210B2CF5000F5B88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC090A9B210B2CF5000F5B88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC090A9D210B2CF6000F5B88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC090AA0210B2CF6000F5B88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +42,8 @@
 		DC090AAB210B2CF6000F5B88 /* CustomOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperationTests.swift; sourceTree = "<group>"; };
 		DC090AAD210B2CF6000F5B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC090AB7210B2D49000F5B88 /* DownloaderOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderOperation.swift; sourceTree = "<group>"; };
+		DC0BB17321101B7500144A3A /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		DC0BB17521102FA900144A3A /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		DCFC5628210EAA19008CF529 /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		DCFC562B210EAAF7008CF529 /* PhotoRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRecord.swift; sourceTree = "<group>"; };
 		DCFC562D210EAFD0008CF529 /* ClassicPhotosDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ClassicPhotosDictionary.plist; sourceTree = "<group>"; };
@@ -87,12 +89,12 @@
 		DC090A95210B2CF5000F5B88 /* CustomOperation */ = {
 			isa = PBXGroup;
 			children = (
+				DC0BB17721102FBF00144A3A /* Controller */,
 				DCFC562D210EAFD0008CF529 /* ClassicPhotosDictionary.plist */,
 				DCFC562F210EB0C2008CF529 /* View */,
 				DCFC562A210EAAB5008CF529 /* Modal */,
 				DC090AB6210B2D19000F5B88 /* Operation */,
 				DC090A96210B2CF5000F5B88 /* AppDelegate.swift */,
-				DC090A98210B2CF5000F5B88 /* ViewController.swift */,
 				DC090A9A210B2CF5000F5B88 /* Main.storyboard */,
 				DC090A9D210B2CF6000F5B88 /* Assets.xcassets */,
 				DC090A9F210B2CF6000F5B88 /* LaunchScreen.storyboard */,
@@ -119,10 +121,19 @@
 			path = Operation;
 			sourceTree = "<group>";
 		};
+		DC0BB17721102FBF00144A3A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DC0BB17521102FA900144A3A /* PhotoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		DCFC562A210EAAB5008CF529 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
 				DCFC562B210EAAF7008CF529 /* PhotoRecord.swift */,
+				DC0BB17321101B7500144A3A /* PhotoManager.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -237,10 +248,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC090A99210B2CF5000F5B88 /* ViewController.swift in Sources */,
 				DCFC5629210EAA19008CF529 /* QueueManager.swift in Sources */,
+				DC0BB17421101B7500144A3A /* PhotoManager.swift in Sources */,
 				DC090A97210B2CF5000F5B88 /* AppDelegate.swift in Sources */,
 				DCFC562C210EAAF7008CF529 /* PhotoRecord.swift in Sources */,
+				DC0BB17621102FA900144A3A /* PhotoViewController.swift in Sources */,
 				DCFC5631210EB0DE008CF529 /* PhotoCell.swift in Sources */,
 				DC090AB8210B2D49000F5B88 /* DownloaderOperation.swift in Sources */,
 			);

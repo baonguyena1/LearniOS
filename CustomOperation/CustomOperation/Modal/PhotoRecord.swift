@@ -8,13 +8,15 @@
 
 import UIKit
 
-enum PhotoState {
-    case new, downloading, downloaded, failed
+@objc enum PhotoState: Int, CustomStringConvertible {
+    case new, queueing, downloading, downloaded, failed
     
     var description: String {
         switch self {
         case .new:
             return "new"
+        case .queueing:
+            return "queueing"
         case .downloading:
             return "downloading"
         case .downloaded:
@@ -25,10 +27,11 @@ enum PhotoState {
     }
 }
 
-class PhotoRecord {
+class PhotoRecord: NSObject {
+    // Marked "dynamic" so it is KVO observable.
     let urlString: String
-    var image = UIImage(named: "Placeholder")
-    var state = PhotoState.new
+    @objc dynamic var image = UIImage(named: "Placeholder")
+    @objc dynamic var state = PhotoState.new
     
     init(urlString: String) {
         self.urlString = urlString

@@ -8,11 +8,11 @@
 
 import UIKit
 
-let unitCount: Int64 = 10
+let unitCount: Int64 = 1
 
 class DownloaderOperation: Operation, ProgressReporting {
     
-    enum State: String {
+    fileprivate enum State: String {
         case ready = "Ready"
         case executing = "Executing"
         case finished = "Finished"
@@ -23,7 +23,7 @@ class DownloaderOperation: Operation, ProgressReporting {
     
     // MARK: - properties
     
-    var photo: PhotoRecord
+    fileprivate var photo: PhotoRecord
     fileprivate var task: URLSessionDataTask?
     fileprivate var parentProgress: Progress?
     var progress: Progress
@@ -67,7 +67,13 @@ class DownloaderOperation: Operation, ProgressReporting {
         }
         self.state = .executing
         photo.state = .downloading
-        task?.resume()
+        if task != nil {
+            task?.resume()
+        } else {
+            state = .finished
+            photo.state = .failed
+            photo.image = UIImage(named: "Failed")
+        }
     }
     
     override func cancel() {
@@ -82,17 +88,19 @@ class DownloaderOperation: Operation, ProgressReporting {
     init(_ photoRecord: PhotoRecord) {
         
         photo = photoRecord
+        photo.state = .queueing
         progress = Progress(totalUnitCount: unitCount)
         super.init()
         self.name = photo.urlString
         
         guard let url = URL(string: photo.urlString) else {
-            photo.state = .failed
-            super.cancel()
             return
         }
 
-        self.task = URLSession(configuration: .default)
+        let configuration = URLSessionConfiguration.default
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+        configuration.urlCache = nil
+        self.task = URLSession(configuration: configuration)
             .dataTask(with: url) { [weak self] (data, response, error) in
                 
                 guard let strongSelf = self else { return }
@@ -103,6 +111,7 @@ class DownloaderOperation: Operation, ProgressReporting {
 
             if error != nil || data == nil {
                 strongSelf.photo.state = .failed
+                strongSelf.photo.image = UIImage(named: "Failed")
             } else {
                 let image = UIImage(data: data!)
                 strongSelf.photo.state = .downloaded
