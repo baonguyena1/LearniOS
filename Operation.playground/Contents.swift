@@ -81,6 +81,17 @@ var employees_2 = Set(0..<5)
 let neighbors_2: Set = [1, 2, 3]
 employees_2.subtract(neighbors_2)
 
+let a: Set = [1, 2, 3, 4, 5]
+let b: Set = [4, 5, 6, 7]
+// a AND b
+let inter = a.intersection(b)
+// a OR b
+let union = a.union(b)
+// a XOR b
+union.subtracting(inter)
+// a - (a AND b)
+a.subtracting(b)
+//-------------------------------------------//
 
 struct Sports: OptionSet {
     let rawValue: Int
@@ -121,3 +132,26 @@ struct Schedule: OptionSet {
     static let saturday     = Schedule(rawValue: 1 << 5)
     static let sunday       = Schedule(rawValue: 1 << 6)
 }
+
+indirect enum Tree<T> {
+    case leaf(T)
+    case branch(Tree<T>, Tree<T>)
+}
+
+let tree: Tree<Int> = Tree.branch(.leaf(1), .branch(.leaf(2), .leaf(3)))
+
+let coordinates:(x: Int, y: Int, z: Int) = (2, 4, 5)
+switch coordinates {
+case (let x, let y, _) where x == y:
+    print(x, y)
+case (let x, let y, _) where y == x * x:
+    print(x, y)
+default:
+    break
+}
+
+let progress = UIProgressView(progressViewStyle: .default)
+progress.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+progress.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+progress.sizeToFit()
+progress
