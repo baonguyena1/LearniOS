@@ -144,7 +144,7 @@ class PhotoViewController: UIViewController {
         var items = [UIBarButtonItem]()
         if let progress = progress {
             
-            if progressIsFinished || progress.isCancelled {
+            if progressIsFinished {
                 items.append(resetButton)
             } else {
                 items.append(cancelButton)

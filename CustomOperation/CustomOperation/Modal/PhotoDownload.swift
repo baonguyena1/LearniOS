@@ -12,7 +12,7 @@ class PhotoDownload: NSObject, ProgressReporting {
     
     private let unitCount: Int64 = 1
     
-    var progress: Progress
+    var progress: Progress 
     var completionHandler: ((_ data: Data?, _ error: Error?) -> Void)?
     
     var downloadTask: URLSessionDataTask? {

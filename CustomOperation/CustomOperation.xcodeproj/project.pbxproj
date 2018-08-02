@@ -142,8 +142,8 @@
 		DCFC562A210EAAB5008CF529 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				DCFC562B210EAAF7008CF529 /* PhotoRecord.swift */,
 				DC0BB17321101B7500144A3A /* PhotoManager.swift */,
+				DCFC562B210EAAF7008CF529 /* PhotoRecord.swift */,
 				DC0BB1792110443A00144A3A /* PhotoDownload.swift */,
 			);
 			path = Modal;
