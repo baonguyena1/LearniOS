@@ -11,7 +11,7 @@ import UIKit
 class BrowserEngine: NSObject {
     
 //    fileprivate let serviceType = "_ipp._tcp."
-    fileprivate let serviceType = "_services._dns-sd._udp"
+    fileprivate let serviceType = "_http._tcp."
     
     fileprivate var serviceBrowser: NetServiceBrowser?
     fileprivate var services: [NetService] = [NetService]()

@@ -150,8 +150,9 @@ default:
     break
 }
 
-let progress = UIProgressView(progressViewStyle: .default)
-progress.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-progress.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-progress.sizeToFit()
-progress
+let content = "123[456]"
+let textParts = content.components(separatedBy: CharacterSet(charactersIn: "[]"))
+for element in textParts {
+    print(element)
+}
+
