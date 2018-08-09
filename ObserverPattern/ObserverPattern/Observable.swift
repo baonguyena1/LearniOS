@@ -10,6 +10,7 @@ import UIKit
 
 extension Notification.Name {
     static let networkConnection = Notification.Name("networkConnection")
+    static let locationChange = Notification.Name("locationChange")
 }
 
 enum NetworkConnectionStatus: String {
@@ -24,27 +25,21 @@ enum StatusKey: String {
     case networkStatusKey
 }
 
+enum LocationKey: String {
+    case locationChangeKey
+}
+
 protocol ObserverProtocol {
-    
-    var statusValue: String { get set }
-    var statusKey: String { get }
     var notificationOfInterest: Notification.Name { get }
     func subscribe()
     func unsubscribe()
-    func handleNotification()
+    func handleNotification(_ notification: Notification)
 }
 
 class Observer: ObserverProtocol {
-    
-    var statusValue: String
-    
-    var statusKey: String
-    
     var notificationOfInterest: Notification.Name
     
-    init(statusKey: StatusKey, notification: Notification.Name) {
-        self.statusValue = "N/A"
-        self.statusKey = statusKey.rawValue
+    init(notification: Notification.Name) {
         self.notificationOfInterest = notification
         subscribe()
     }
@@ -58,15 +53,10 @@ class Observer: ObserverProtocol {
     }
     
     @objc func receiveNotification(_ notification: Notification) {
-        if let userInfo = notification.userInfo, let status = userInfo[statusKey] as? String {
-            
-            statusValue = status
-            handleNotification()
-            print("Notification \(notification.name) received; status = \(statusValue)")
-        }
+        handleNotification(notification)
     }
     
-    func handleNotification() {
+    func handleNotification(_ notification: Notification) {
         fatalError("ERROR: You must override the [handleNotification] method.")
     }
     
@@ -77,33 +67,13 @@ class Observer: ObserverProtocol {
     
 }
 
-class NetworkConnectionHandler: Observer {
-    var view: UIView
-    
-    init(view: UIView) {
-        self.view = view
-        super.init(statusKey: .networkStatusKey, notification: .networkConnection)
-    }
-    
-    override func handleNotification() {
-        if statusValue == NetworkConnectionStatus.connected.rawValue {
-            view.backgroundColor = .green
-        } else {
-            view.backgroundColor = .red
-        }
-    }
-    
-}
-
 protocol ObservedProtocol {
-    var statusKey: StatusKey { get }
-    var notification: Notification.Name { get }
-    func notifyObservers(about changeTo: String)
+    func notifyObservers(about changeTo: [String: Any])
 }
 
 extension ObservedProtocol {
     
-    func notifyObservers(about changeTo: String) {
-        NotificationCenter.default.post(name: notification, object: self, userInfo: [statusKey.rawValue: changeTo])
+    func notifyObservers(about changeTo: [String: Any]) {
+        NotificationCenter.default.post(name: notification, object: self, userInfo: changeTo)
     }
 }
