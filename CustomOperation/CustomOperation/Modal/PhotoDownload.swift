@@ -32,6 +32,7 @@ class PhotoDownload: NSObject, ProgressReporting {
     func startImport() {
         guard let url = URL(string: urlString) else {
             progress.completedUnitCount = unitCount
+            completionHandler?(nil, nil)
             return
         }
         
@@ -99,15 +100,22 @@ extension PhotoDownload: URLSessionDelegate, URLSessionDownloadDelegate {
     
     func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if appDelegate.backgroundSessionCompletionHandler != nil {
-            let completionHandler = appDelegate.backgroundSessionCompletionHandler
-            appDelegate.backgroundSessionCompletionHandler = nil
-            OperationQueue.main.addOperation {
-                print("background completed!")
-                completionHandler?()
+        DispatchQueue.main.async {
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            DispatchQueue.global().async {
+                
+                if appDelegate.backgroundSessionCompletionHandler != nil {
+                    let completionHandler = appDelegate.backgroundSessionCompletionHandler
+                    appDelegate.backgroundSessionCompletionHandler = nil
+                    OperationQueue.main.addOperation {
+                        print("background completed!")
+                        completionHandler?()
+                    }
+                }
             }
         }
+        
     }
     
 }
