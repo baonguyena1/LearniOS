@@ -137,7 +137,6 @@ class PhotoViewController: UIViewController {
         }
         progressView.progress = Float(progress.fractionCompleted)
         descriptionLabel.text = progress.localizedAdditionalDescription
-//        print(progress.localizedAdditionalDescription, progress.localizedDescription)
     }
     
     fileprivate func updateToolbar() {

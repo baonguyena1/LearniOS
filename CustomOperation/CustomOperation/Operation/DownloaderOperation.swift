@@ -10,7 +10,7 @@ import UIKit
 
 
 class DownloaderOperation: Operation, ProgressReporting {
-    fileprivate let unitCount: Int64 = 10
+    fileprivate let unitCount: Int64 = 1
     
     fileprivate enum State: String {
         case ready = "Ready"

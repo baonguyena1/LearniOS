@@ -93,13 +93,21 @@ extension PhotoDownload: URLSessionDelegate, URLSessionDownloadDelegate {
             self.progress.totalUnitCount = totalBytesExpectedToWrite
         }
         OperationQueue.main.addOperation {
-            
             self.progress.completedUnitCount = totalBytesWritten
         }
     }
     
     func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.backgroundSessionCompletionHandler != nil {
+            let completionHandler = appDelegate.backgroundSessionCompletionHandler
+            appDelegate.backgroundSessionCompletionHandler = nil
+            OperationQueue.main.addOperation {
+                print("background completed!")
+                completionHandler?()
+            }
+        }
     }
     
 }
