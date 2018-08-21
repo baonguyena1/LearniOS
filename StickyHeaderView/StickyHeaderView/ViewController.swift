@@ -21,6 +21,36 @@ class ViewController: UIViewController {
         setUpTableView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let inputs = ["In-Queue", "Table A1", "Table A01", "Table A2", "Table A10", "Table A1-1", "Table A1.1"]
+        
+        let results = inputs.sorted {
+            
+            let firstStringNumber = $0.components(separatedBy: CharacterSet.decimalDigits.inverted).last!
+            let secondStringNumber = $1.components(separatedBy: CharacterSet.decimalDigits.inverted).last!
+            
+            let firstIndexEnd = $0.index($0.endIndex, offsetBy: -firstStringNumber.count)
+            let firstStringWithOutLatestNumber = String($0[..<firstIndexEnd])
+            let secondIndexEnd = $1.index($1.endIndex, offsetBy: -secondStringNumber.count)
+            let secondStringWithoutLatestNumber = String($1[..<secondIndexEnd])
+            print(firstStringWithOutLatestNumber, secondStringWithoutLatestNumber)
+            
+            let compareResult = firstStringWithOutLatestNumber.compare(secondStringWithoutLatestNumber)
+            if compareResult == .orderedSame {
+                
+                let firstNumber = Int(firstStringNumber)!
+                let secondNumber = Int(secondStringNumber)!
+                if firstNumber == secondNumber {
+                    return firstStringNumber.compare(secondStringNumber) == .orderedAscending
+                }
+                return firstNumber > secondNumber
+            }
+            return compareResult == .orderedAscending
+        }
+        print(results)
+    }
+    
     private func setUpHeader() {
         headerView = CustomHeaderView(frame: .zero, title: "Articles")
         headerView.translatesAutoresizingMaskIntoConstraints = false
