@@ -1,0 +1,564 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07B965D03D9276422B260AF2 /* Pods_GPUIImageFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BBB4C9B2382D7F0A914DC4 /* Pods_GPUIImageFilter.framework */; };
+		AF34ADC6D3F31ABC5EBCF9E9 /* Pods_GPUIImageFilterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10813A35F20EF67AF97DE2D3 /* Pods_GPUIImageFilterTests.framework */; };
+		DC9AFB45212C0E2700D2C96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AFB44212C0E2700D2C96C /* AppDelegate.swift */; };
+		DC9AFB47212C0E2700D2C96C /* FilterCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AFB46212C0E2700D2C96C /* FilterCameraViewController.swift */; };
+		DC9AFB4A212C0E2700D2C96C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9AFB48212C0E2700D2C96C /* Main.storyboard */; };
+		DC9AFB4C212C0E2800D2C96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9AFB4B212C0E2800D2C96C /* Assets.xcassets */; };
+		DC9AFB4F212C0E2800D2C96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9AFB4D212C0E2800D2C96C /* LaunchScreen.storyboard */; };
+		DC9AFB5A212C0E2800D2C96C /* GPUIImageFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AFB59212C0E2800D2C96C /* GPUIImageFilterTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC9AFB56212C0E2800D2C96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC9AFB39212C0E2700D2C96C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC9AFB40212C0E2700D2C96C;
+			remoteInfo = GPUIImageFilter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10813A35F20EF67AF97DE2D3 /* Pods_GPUIImageFilterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPUIImageFilterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16BBB4C9B2382D7F0A914DC4 /* Pods_GPUIImageFilter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPUIImageFilter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		206F33B6C9EF69A98042C2C7 /* Pods-GPUIImageFilter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUIImageFilter.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUIImageFilter/Pods-GPUIImageFilter.release.xcconfig"; sourceTree = "<group>"; };
+		24705612DB8F9D6474EE7D68 /* Pods-GPUIImageFilterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUIImageFilterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUIImageFilterTests/Pods-GPUIImageFilterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2E90F0558734ACC50C6EE0C1 /* Pods-GPUIImageFilterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUIImageFilterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUIImageFilterTests/Pods-GPUIImageFilterTests.release.xcconfig"; sourceTree = "<group>"; };
+		82D4451C332105ABF609A9F0 /* Pods-GPUIImageFilter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUIImageFilter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUIImageFilter/Pods-GPUIImageFilter.debug.xcconfig"; sourceTree = "<group>"; };
+		DC9AFB41212C0E2700D2C96C /* GPUIImageFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUIImageFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC9AFB44212C0E2700D2C96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC9AFB46212C0E2700D2C96C /* FilterCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCameraViewController.swift; sourceTree = "<group>"; };
+		DC9AFB49212C0E2700D2C96C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC9AFB4B212C0E2800D2C96C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC9AFB4E212C0E2800D2C96C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC9AFB50212C0E2800D2C96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC9AFB55212C0E2800D2C96C /* GPUIImageFilterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPUIImageFilterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC9AFB59212C0E2800D2C96C /* GPUIImageFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPUIImageFilterTests.swift; sourceTree = "<group>"; };
+		DC9AFB5B212C0E2800D2C96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC9AFB3E212C0E2700D2C96C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B965D03D9276422B260AF2 /* Pods_GPUIImageFilter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9AFB52212C0E2800D2C96C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF34ADC6D3F31ABC5EBCF9E9 /* Pods_GPUIImageFilterTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C11A2A07B5F3282C42D7DDDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16BBB4C9B2382D7F0A914DC4 /* Pods_GPUIImageFilter.framework */,
+				10813A35F20EF67AF97DE2D3 /* Pods_GPUIImageFilterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8781FBD94066571000BA618 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82D4451C332105ABF609A9F0 /* Pods-GPUIImageFilter.debug.xcconfig */,
+				206F33B6C9EF69A98042C2C7 /* Pods-GPUIImageFilter.release.xcconfig */,
+				24705612DB8F9D6474EE7D68 /* Pods-GPUIImageFilterTests.debug.xcconfig */,
+				2E90F0558734ACC50C6EE0C1 /* Pods-GPUIImageFilterTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DC9AFB38212C0E2700D2C96C = {
+			isa = PBXGroup;
+			children = (
+				DC9AFB43212C0E2700D2C96C /* GPUIImageFilter */,
+				DC9AFB58212C0E2800D2C96C /* GPUIImageFilterTests */,
+				DC9AFB42212C0E2700D2C96C /* Products */,
+				C8781FBD94066571000BA618 /* Pods */,
+				C11A2A07B5F3282C42D7DDDC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DC9AFB42212C0E2700D2C96C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC9AFB41212C0E2700D2C96C /* GPUIImageFilter.app */,
+				DC9AFB55212C0E2800D2C96C /* GPUIImageFilterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC9AFB43212C0E2700D2C96C /* GPUIImageFilter */ = {
+			isa = PBXGroup;
+			children = (
+				DC9AFB44212C0E2700D2C96C /* AppDelegate.swift */,
+				DC9AFB46212C0E2700D2C96C /* FilterCameraViewController.swift */,
+				DC9AFB48212C0E2700D2C96C /* Main.storyboard */,
+				DC9AFB4B212C0E2800D2C96C /* Assets.xcassets */,
+				DC9AFB4D212C0E2800D2C96C /* LaunchScreen.storyboard */,
+				DC9AFB50212C0E2800D2C96C /* Info.plist */,
+			);
+			path = GPUIImageFilter;
+			sourceTree = "<group>";
+		};
+		DC9AFB58212C0E2800D2C96C /* GPUIImageFilterTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC9AFB59212C0E2800D2C96C /* GPUIImageFilterTests.swift */,
+				DC9AFB5B212C0E2800D2C96C /* Info.plist */,
+			);
+			path = GPUIImageFilterTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC9AFB40212C0E2700D2C96C /* GPUIImageFilter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC9AFB5E212C0E2800D2C96C /* Build configuration list for PBXNativeTarget "GPUIImageFilter" */;
+			buildPhases = (
+				DCDD7DEA9ED22DCE7061FC99 /* [CP] Check Pods Manifest.lock */,
+				DC9AFB3D212C0E2700D2C96C /* Sources */,
+				DC9AFB3E212C0E2700D2C96C /* Frameworks */,
+				DC9AFB3F212C0E2700D2C96C /* Resources */,
+				5AF971B1964E6D9E1B4B356E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GPUIImageFilter;
+			productName = GPUIImageFilter;
+			productReference = DC9AFB41212C0E2700D2C96C /* GPUIImageFilter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC9AFB54212C0E2800D2C96C /* GPUIImageFilterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC9AFB61212C0E2800D2C96C /* Build configuration list for PBXNativeTarget "GPUIImageFilterTests" */;
+			buildPhases = (
+				5C9864427081CD491EE67F9A /* [CP] Check Pods Manifest.lock */,
+				DC9AFB51212C0E2800D2C96C /* Sources */,
+				DC9AFB52212C0E2800D2C96C /* Frameworks */,
+				DC9AFB53212C0E2800D2C96C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC9AFB57212C0E2800D2C96C /* PBXTargetDependency */,
+			);
+			name = GPUIImageFilterTests;
+			productName = GPUIImageFilterTests;
+			productReference = DC9AFB55212C0E2800D2C96C /* GPUIImageFilterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC9AFB39212C0E2700D2C96C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Bao Nguyen";
+				TargetAttributes = {
+					DC9AFB40212C0E2700D2C96C = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					DC9AFB54212C0E2800D2C96C = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = DC9AFB40212C0E2700D2C96C;
+					};
+				};
+			};
+			buildConfigurationList = DC9AFB3C212C0E2700D2C96C /* Build configuration list for PBXProject "GPUIImageFilter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC9AFB38212C0E2700D2C96C;
+			productRefGroup = DC9AFB42212C0E2700D2C96C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC9AFB40212C0E2700D2C96C /* GPUIImageFilter */,
+				DC9AFB54212C0E2800D2C96C /* GPUIImageFilterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC9AFB3F212C0E2700D2C96C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC9AFB4F212C0E2800D2C96C /* LaunchScreen.storyboard in Resources */,
+				DC9AFB4C212C0E2800D2C96C /* Assets.xcassets in Resources */,
+				DC9AFB4A212C0E2700D2C96C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9AFB53212C0E2800D2C96C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AF971B1964E6D9E1B4B356E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GPUIImageFilter/Pods-GPUIImageFilter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GPUIImageFilter/Pods-GPUIImageFilter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C9864427081CD491EE67F9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPUIImageFilterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCDD7DEA9ED22DCE7061FC99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPUIImageFilter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC9AFB3D212C0E2700D2C96C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC9AFB47212C0E2700D2C96C /* FilterCameraViewController.swift in Sources */,
+				DC9AFB45212C0E2700D2C96C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9AFB51212C0E2800D2C96C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC9AFB5A212C0E2800D2C96C /* GPUIImageFilterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC9AFB57212C0E2800D2C96C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC9AFB40212C0E2700D2C96C /* GPUIImageFilter */;
+			targetProxy = DC9AFB56212C0E2800D2C96C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC9AFB48212C0E2700D2C96C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC9AFB49212C0E2700D2C96C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC9AFB4D212C0E2800D2C96C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC9AFB4E212C0E2800D2C96C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC9AFB5C212C0E2800D2C96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DC9AFB5D212C0E2800D2C96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC9AFB5F212C0E2800D2C96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82D4451C332105ABF609A9F0 /* Pods-GPUIImageFilter.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MK2N7RD69E;
+				INFOPLIST_FILE = GPUIImageFilter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baon.GPUIImageFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC9AFB60212C0E2800D2C96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 206F33B6C9EF69A98042C2C7 /* Pods-GPUIImageFilter.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MK2N7RD69E;
+				INFOPLIST_FILE = GPUIImageFilter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baon.GPUIImageFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DC9AFB62212C0E2800D2C96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24705612DB8F9D6474EE7D68 /* Pods-GPUIImageFilterTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MK2N7RD69E;
+				INFOPLIST_FILE = GPUIImageFilterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baon.GPUIImageFilterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPUIImageFilter.app/GPUIImageFilter";
+			};
+			name = Debug;
+		};
+		DC9AFB63212C0E2800D2C96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E90F0558734ACC50C6EE0C1 /* Pods-GPUIImageFilterTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MK2N7RD69E;
+				INFOPLIST_FILE = GPUIImageFilterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baon.GPUIImageFilterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPUIImageFilter.app/GPUIImageFilter";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC9AFB3C212C0E2700D2C96C /* Build configuration list for PBXProject "GPUIImageFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC9AFB5C212C0E2800D2C96C /* Debug */,
+				DC9AFB5D212C0E2800D2C96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC9AFB5E212C0E2800D2C96C /* Build configuration list for PBXNativeTarget "GPUIImageFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC9AFB5F212C0E2800D2C96C /* Debug */,
+				DC9AFB60212C0E2800D2C96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC9AFB61212C0E2800D2C96C /* Build configuration list for PBXNativeTarget "GPUIImageFilterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC9AFB62212C0E2800D2C96C /* Debug */,
+				DC9AFB63212C0E2800D2C96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC9AFB39212C0E2700D2C96C /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_GPUIImageFilter {
+  umbrella header "Pods-GPUIImageFilter-umbrella.h"
+
+  export *
+  module * { export * }
+}
