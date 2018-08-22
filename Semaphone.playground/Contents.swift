@@ -36,11 +36,13 @@ import UIKit
 
 /**
  lấy substring đến số cuối cùng
- nếu trùng tên, hoac ten chứa nhau -> so sánh số
- nếu số bằng thì chuyển số qua string rồi so sánh (cho case 1 vs 01, 001)
+ nếu trùng tên, hoac ten chứa nhau
+    tên không trùng so sánh tên
+    tên trùng so sánh số
+    nếu số bằng thì chuyển số qua string rồi so sánh (cho case 1 vs 01, 001)
  không trùng tên so sánh string
  **/
-//let inputs = ["In-Queue", "Table A1", "Table A01", "Table A2", "Table A10", "Table A1-1", "Table A11 A02", "Table A1.1"]
+//let inputs = ["In-Queue", "Table A1", "Table A01", "Table A2", "Table A10", "Table A1-1", "Table A11 A0", "Table A1.1"]
 //
 //let results = inputs.sorted {
 //
@@ -55,10 +57,11 @@ import UIKit
 //    let compareResult = firstStringWithOutLatestNumber.compare(secondStringWithoutLatestNumber)
 //    let containString = firstStringWithOutLatestNumber.contains(secondStringWithoutLatestNumber) || secondStringWithoutLatestNumber.contains(firstStringWithOutLatestNumber)
 //
+//    print(firstStringWithOutLatestNumber, secondStringWithoutLatestNumber)
 //    if compareResult == .orderedSame || containString {
 //
-//        let firstNumber = Int(firstStringNumber)!
-//        let secondNumber = Int(secondStringNumber)!
+//        let firstNumber = (firstStringNumber as NSString).intValue
+//        let secondNumber = (secondStringNumber as NSString).intValue
 //        if firstNumber == secondNumber {
 //            return firstStringNumber.compare(secondStringNumber) == .orderedAscending
 //        }
@@ -74,14 +77,33 @@ import UIKit
 //a.contains(b)
 //b.contains(a)
 
-let semaphone = DispatchSemaphore(value: 1)
-for i in 0...10 {
-    semaphone.wait()
-    let second = Int(arc4random_uniform(3))
-    print("START", i)
-    DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(second)) {
-        print("END", i)
-        semaphone.signal()
-    }
+//let semaphone = DispatchSemaphore(value: 1)
+//for i in 0...10 {
+//    semaphone.wait()
+//    let second = Int(arc4random_uniform(3))
+//    print("START", i)
+//    DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(second)) {
+//        print("END", i)
+//        semaphone.signal()
+//    }
+//}
+//print("----------")
+//"Table A11 A01".contains("Table A1")
+
+let roundCash = { (input: Double) -> Double in
+    let round3 = round(input*1000)/1000
+    return round(round3 * 100) / 100
 }
-print("----------")
+roundCash(1.1246)
+roundCash(1.016)
+let ESP = 0.00001
+let stringByRoundCash = { ( input: Double) -> String in
+    var amount = input
+    if input >= -ESP && input <= ESP {
+        amount = 0
+    }
+    return String(format: "%0.2f", roundCash(amount) + ESP)
+}
+stringByRoundCash(1.1246)
+stringByRoundCash(1.016)
+

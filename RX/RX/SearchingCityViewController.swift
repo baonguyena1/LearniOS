@@ -34,7 +34,6 @@ class SearchingCityViewController: UIViewController {
                 guard let `self` = self else { return }
                 self.shownCities = self.allCities.filter { $0.hasPrefix(query) }
                 self.tableView.reloadData()
-            
         }).disposed(by: disposeBag)
     }
 

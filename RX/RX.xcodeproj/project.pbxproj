@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		209B37DB0481B501875D01E5 /* Pods_RXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DE73A9D423E8B53FF719B8 /* Pods_RXTests.framework */; };
 		C2C855886243213DFF3247A5 /* Pods_RX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB13D5AC3E7CD44983FDDB30 /* Pods_RX.framework */; };
-		DC45560B212C0ABD00F99ABA /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45560A212C0ABD00F99ABA /* UserViewController.swift */; };
 		DC5B7E5D212BD3D200587B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B7E5C212BD3D200587B26 /* AppDelegate.swift */; };
 		DC5B7E5F212BD3D200587B26 /* SearchingCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B7E5E212BD3D200587B26 /* SearchingCityViewController.swift */; };
 		DC5B7E62212BD3D200587B26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC5B7E60212BD3D200587B26 /* Main.storyboard */; };
@@ -17,6 +16,8 @@
 		DC5B7E67212BD3D500587B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC5B7E65212BD3D500587B26 /* LaunchScreen.storyboard */; };
 		DC5B7E72212BD3D500587B26 /* RXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B7E71212BD3D500587B26 /* RXTests.swift */; };
 		DC5B7E7D212C023400587B26 /* ThrottleDebounceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B7E7C212C023400587B26 /* ThrottleDebounceViewController.swift */; };
+		DCC86083212D61A400E25797 /* MVVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC86082212D61A400E25797 /* MVVMViewController.swift */; };
+		DCC86085212D62D400E25797 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC86084212D62D400E25797 /* InputViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +35,6 @@
 		56AB4D318CC9E3C851DCD3E9 /* Pods-RX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RX.release.xcconfig"; path = "Pods/Target Support Files/Pods-RX/Pods-RX.release.xcconfig"; sourceTree = "<group>"; };
 		6280E7BAE2A0968405F0E00C /* Pods-RXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RXTests/Pods-RXTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB13D5AC3E7CD44983FDDB30 /* Pods_RX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC45560A212C0ABD00F99ABA /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		DC5B7E59212BD3D200587B26 /* RX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5B7E5C212BD3D200587B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC5B7E5E212BD3D200587B26 /* SearchingCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCityViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +46,8 @@
 		DC5B7E71212BD3D500587B26 /* RXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXTests.swift; sourceTree = "<group>"; };
 		DC5B7E73212BD3D500587B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC5B7E7C212C023400587B26 /* ThrottleDebounceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrottleDebounceViewController.swift; sourceTree = "<group>"; };
+		DCC86082212D61A400E25797 /* MVVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMViewController.swift; sourceTree = "<group>"; };
+		DCC86084212D62D400E25797 /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
 		E0DE73A9D423E8B53FF719B8 /* Pods_RXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB3FEBAC6F64660D92571DFE /* Pods-RXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RXTests/Pods-RXTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,7 +122,8 @@
 				DC5B7E65212BD3D500587B26 /* LaunchScreen.storyboard */,
 				DC5B7E68212BD3D500587B26 /* Info.plist */,
 				DC5B7E7C212C023400587B26 /* ThrottleDebounceViewController.swift */,
-				DC45560A212C0ABD00F99ABA /* UserViewController.swift */,
+				DCC86082212D61A400E25797 /* MVVMViewController.swift */,
+				DCC86084212D62D400E25797 /* InputViewModel.swift */,
 			);
 			path = RX;
 			sourceTree = "<group>";
@@ -297,10 +300,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCC86083212D61A400E25797 /* MVVMViewController.swift in Sources */,
 				DC5B7E5F212BD3D200587B26 /* SearchingCityViewController.swift in Sources */,
-				DC45560B212C0ABD00F99ABA /* UserViewController.swift in Sources */,
 				DC5B7E5D212BD3D200587B26 /* AppDelegate.swift in Sources */,
 				DC5B7E7D212C023400587B26 /* ThrottleDebounceViewController.swift in Sources */,
+				DCC86085212D62D400E25797 /* InputViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,13 +466,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MK2N7RD69E;
+				DEVELOPMENT_TEAM = 4X4ZDEX56P;
 				INFOPLIST_FILE = RX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baon.RX;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baon.RX-v0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -481,13 +485,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MK2N7RD69E;
+				DEVELOPMENT_TEAM = 4X4ZDEX56P;
 				INFOPLIST_FILE = RX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baon.RX;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baon.RX-v0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
