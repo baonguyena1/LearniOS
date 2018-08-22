@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttt-10-q6b" userLabel="Bottom Camera View" customClass="GPUImageView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvs-pC-f5z" userLabel="Top Camera View" customClass="GPUImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -26,13 +30,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pvs-pC-f5z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="65S-jv-5XU"/>
+                            <constraint firstItem="ttt-10-q6b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6F1-jk-H9P"/>
+                            <constraint firstItem="ttt-10-q6b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="U3D-uK-w6s"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ttt-10-q6b" secondAttribute="trailing" id="YNN-TJ-NdO"/>
                             <constraint firstItem="pvs-pC-f5z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dLj-qr-Tyj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ttt-10-q6b" secondAttribute="bottom" id="qlY-Cu-DKA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pvs-pC-f5z" secondAttribute="bottom" id="qyI-Q9-qYQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pvs-pC-f5z" secondAttribute="trailing" id="yuA-Rw-hQU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomCameraImageView" destination="ttt-10-q6b" id="pAs-xz-egi"/>
                         <outlet property="topCameraImageView" destination="pvs-pC-f5z" id="Nw3-Qn-Zw5"/>
                     </connections>
                 </viewController>
