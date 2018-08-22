@@ -15,6 +15,7 @@ class InputViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var firstTextField: UITextField!
     @IBOutlet weak var secondTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     let multiInputViewModel = MultiInputViewModel()
     let disposeBag = DisposeBag()
@@ -34,9 +35,19 @@ class InputViewController: UIViewController {
             .bind(to: multiInputViewModel.secondVariable)
             .disposed(by: disposeBag)
         
-        multiInputViewModel.firstSecondObserable
-            .subscribe(onNext: { [unowned self] (text) in
-                self.resultLabel.text = text
+//        multiInputViewModel.firstSecondObserable
+//            .subscribe(onNext: { [unowned self] (text) in
+//                self.resultLabel.text = text
+//            })
+//            .disposed(by: disposeBag)
+        multiInputViewModel.isChecked
+            .bind(to: loginButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        multiInputViewModel.isChecked
+            .subscribe(onNext: { [unowned self] (isChecked) in
+                self.resultLabel.text = isChecked ? "Available" : "Not Available"
+                self.resultLabel.textColor = isChecked ? .green : .red
             })
             .disposed(by: disposeBag)
     }

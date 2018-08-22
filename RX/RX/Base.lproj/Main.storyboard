@@ -252,16 +252,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wj-RH-NXZ">
+                                <rect key="frame" x="137.66666666666666" y="344.33333333333331" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="aTo-uL-eNZ"/>
+                                </constraints>
+                                <state key="normal" title="Login"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Z0s-AN-b8O" firstAttribute="top" secondItem="2mM-u2-xwW" secondAttribute="bottom" constant="20" id="03y-vB-YDa"/>
-                            <constraint firstItem="U9l-D1-KJ3" firstAttribute="trailing" secondItem="2mM-u2-xwW" secondAttribute="trailing" constant="16" id="8yw-bC-kq7"/>
+                            <constraint firstItem="8Wj-RH-NXZ" firstAttribute="top" secondItem="ndi-6n-2Ct" secondAttribute="bottom" constant="40" id="6VO-tF-xAs"/>
                             <constraint firstItem="U9l-D1-KJ3" firstAttribute="trailing" secondItem="ndi-6n-2Ct" secondAttribute="trailing" constant="16" id="Lx7-SF-gQX"/>
                             <constraint firstItem="Z0s-AN-b8O" firstAttribute="leading" secondItem="U9l-D1-KJ3" secondAttribute="leading" constant="16" id="MYo-6W-eJv"/>
                             <constraint firstItem="ndi-6n-2Ct" firstAttribute="leading" secondItem="U9l-D1-KJ3" secondAttribute="leading" constant="16" id="OAU-V7-UXe"/>
                             <constraint firstItem="U9l-D1-KJ3" firstAttribute="trailing" secondItem="Z0s-AN-b8O" secondAttribute="trailing" constant="16" id="OKR-6Y-CwH"/>
                             <constraint firstItem="2mM-u2-xwW" firstAttribute="top" secondItem="U9l-D1-KJ3" secondAttribute="top" constant="100" id="U4F-JO-5zG"/>
+                            <constraint firstItem="8Wj-RH-NXZ" firstAttribute="centerX" secondItem="nYw-AQ-aXV" secondAttribute="centerX" id="Uim-bc-nO6"/>
                             <constraint firstItem="2mM-u2-xwW" firstAttribute="leading" secondItem="U9l-D1-KJ3" secondAttribute="leading" constant="16" id="YkT-Xy-WYg"/>
                             <constraint firstItem="ndi-6n-2Ct" firstAttribute="top" secondItem="Z0s-AN-b8O" secondAttribute="bottom" constant="16" id="bEk-Se-kYb"/>
                             <constraint firstItem="2mM-u2-xwW" firstAttribute="centerX" secondItem="nYw-AQ-aXV" secondAttribute="centerX" id="uuX-cX-OHW"/>
@@ -271,6 +279,7 @@
                     <navigationItem key="navigationItem" id="5SX-4Y-SwZ"/>
                     <connections>
                         <outlet property="firstTextField" destination="Z0s-AN-b8O" id="NFD-V2-LH9"/>
+                        <outlet property="loginButton" destination="8Wj-RH-NXZ" id="Fqi-IZ-A4g"/>
                         <outlet property="resultLabel" destination="2mM-u2-xwW" id="lO1-l3-qSb"/>
                         <outlet property="secondTextField" destination="ndi-6n-2Ct" id="fMs-zo-yWa"/>
                     </connections>

@@ -25,4 +25,10 @@ class MultiInputViewModel {
             return "\(first) \(second)"
         }
     }
+    
+    var isChecked: Observable<Bool> {
+        return Observable.combineLatest(firstVariable.asObservable(), secondVariable.asObservable()) { first, second in
+            return first.count >= 3 && second.count >= 3
+        }
+    }
 }
