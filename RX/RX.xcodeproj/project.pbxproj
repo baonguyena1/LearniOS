@@ -18,6 +18,8 @@
 		DC5B7E7D212C023400587B26 /* ThrottleDebounceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B7E7C212C023400587B26 /* ThrottleDebounceViewController.swift */; };
 		DCC86083212D61A400E25797 /* MVVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC86082212D61A400E25797 /* MVVMViewController.swift */; };
 		DCC86085212D62D400E25797 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC86084212D62D400E25797 /* InputViewModel.swift */; };
+		DCC86089212D66C200E25797 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC86088212D66C200E25797 /* InputViewController.swift */; };
+		DCC8608B212D677000E25797 /* MultiInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8608A212D677000E25797 /* MultiInputViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		DC5B7E7C212C023400587B26 /* ThrottleDebounceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrottleDebounceViewController.swift; sourceTree = "<group>"; };
 		DCC86082212D61A400E25797 /* MVVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMViewController.swift; sourceTree = "<group>"; };
 		DCC86084212D62D400E25797 /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
+		DCC86088212D66C200E25797 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		DCC8608A212D677000E25797 /* MultiInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiInputViewModel.swift; sourceTree = "<group>"; };
 		E0DE73A9D423E8B53FF719B8 /* Pods_RXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB3FEBAC6F64660D92571DFE /* Pods-RXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RXTests/Pods-RXTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +119,7 @@
 		DC5B7E5B212BD3D200587B26 /* RX */ = {
 			isa = PBXGroup;
 			children = (
+				DCC86087212D663800E25797 /* MVVMLogic */,
 				DC5B7E5C212BD3D200587B26 /* AppDelegate.swift */,
 				DC5B7E5E212BD3D200587B26 /* SearchingCityViewController.swift */,
 				DC5B7E60212BD3D200587B26 /* Main.storyboard */,
@@ -122,8 +127,7 @@
 				DC5B7E65212BD3D500587B26 /* LaunchScreen.storyboard */,
 				DC5B7E68212BD3D500587B26 /* Info.plist */,
 				DC5B7E7C212C023400587B26 /* ThrottleDebounceViewController.swift */,
-				DCC86082212D61A400E25797 /* MVVMViewController.swift */,
-				DCC86084212D62D400E25797 /* InputViewModel.swift */,
+				DCC86086212D662D00E25797 /* MVVMBasic */,
 			);
 			path = RX;
 			sourceTree = "<group>";
@@ -135,6 +139,24 @@
 				DC5B7E73212BD3D500587B26 /* Info.plist */,
 			);
 			path = RXTests;
+			sourceTree = "<group>";
+		};
+		DCC86086212D662D00E25797 /* MVVMBasic */ = {
+			isa = PBXGroup;
+			children = (
+				DCC86082212D61A400E25797 /* MVVMViewController.swift */,
+				DCC86084212D62D400E25797 /* InputViewModel.swift */,
+			);
+			path = MVVMBasic;
+			sourceTree = "<group>";
+		};
+		DCC86087212D663800E25797 /* MVVMLogic */ = {
+			isa = PBXGroup;
+			children = (
+				DCC86088212D66C200E25797 /* InputViewController.swift */,
+				DCC8608A212D677000E25797 /* MultiInputViewModel.swift */,
+			);
+			path = MVVMLogic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,9 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCC8608B212D677000E25797 /* MultiInputViewModel.swift in Sources */,
 				DCC86083212D61A400E25797 /* MVVMViewController.swift in Sources */,
 				DC5B7E5F212BD3D200587B26 /* SearchingCityViewController.swift in Sources */,
 				DC5B7E5D212BD3D200587B26 /* AppDelegate.swift in Sources */,
+				DCC86089212D66C200E25797 /* InputViewController.swift in Sources */,
 				DC5B7E7D212C023400587B26 /* ThrottleDebounceViewController.swift in Sources */,
 				DCC86085212D62D400E25797 /* InputViewModel.swift in Sources */,
 			);
