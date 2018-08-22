@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07B965D03D9276422B260AF2 /* Pods_GPUIImageFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BBB4C9B2382D7F0A914DC4 /* Pods_GPUIImageFilter.framework */; };
 		AF34ADC6D3F31ABC5EBCF9E9 /* Pods_GPUIImageFilterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10813A35F20EF67AF97DE2D3 /* Pods_GPUIImageFilterTests.framework */; };
+		DC31876E212CF68D00CE5D4A /* FeBasicAnimationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31876D212CF68D00CE5D4A /* FeBasicAnimationBlock.swift */; };
 		DC9AFB45212C0E2700D2C96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AFB44212C0E2700D2C96C /* AppDelegate.swift */; };
 		DC9AFB47212C0E2700D2C96C /* FilterCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AFB46212C0E2700D2C96C /* FilterCameraViewController.swift */; };
 		DC9AFB4A212C0E2700D2C96C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9AFB48212C0E2700D2C96C /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		24705612DB8F9D6474EE7D68 /* Pods-GPUIImageFilterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUIImageFilterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUIImageFilterTests/Pods-GPUIImageFilterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2E90F0558734ACC50C6EE0C1 /* Pods-GPUIImageFilterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUIImageFilterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUIImageFilterTests/Pods-GPUIImageFilterTests.release.xcconfig"; sourceTree = "<group>"; };
 		82D4451C332105ABF609A9F0 /* Pods-GPUIImageFilter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUIImageFilter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUIImageFilter/Pods-GPUIImageFilter.debug.xcconfig"; sourceTree = "<group>"; };
+		DC31876D212CF68D00CE5D4A /* FeBasicAnimationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeBasicAnimationBlock.swift; sourceTree = "<group>"; };
 		DC9AFB41212C0E2700D2C96C /* GPUIImageFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUIImageFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9AFB44212C0E2700D2C96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC9AFB46212C0E2700D2C96C /* FilterCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCameraViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				DC9AFB4B212C0E2800D2C96C /* Assets.xcassets */,
 				DC9AFB4D212C0E2800D2C96C /* LaunchScreen.storyboard */,
 				DC9AFB50212C0E2800D2C96C /* Info.plist */,
+				DC31876D212CF68D00CE5D4A /* FeBasicAnimationBlock.swift */,
 			);
 			path = GPUIImageFilter;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC31876E212CF68D00CE5D4A /* FeBasicAnimationBlock.swift in Sources */,
 				DC9AFB47212C0E2700D2C96C /* FilterCameraViewController.swift in Sources */,
 				DC9AFB45212C0E2700D2C96C /* AppDelegate.swift in Sources */,
 			);
