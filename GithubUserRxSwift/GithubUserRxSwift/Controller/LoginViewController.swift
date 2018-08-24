@@ -21,31 +21,36 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginViewModel = LoginViewModel()
+        self.loginViewModel = LoginViewModel(disposeBag: self.disposeBag)
         
         self.usernameTextField
             .rx.text
             .map { $0 ?? "" }
-            .bind(to: self.loginViewModel.usernameStream)
+            .bind(to: self.loginViewModel.usernameVariable)
             .disposed(by: disposeBag)
         
         self.passwordTextField
             .rx.text
             .map { $0 ?? "" }
-            .bind(to: self.loginViewModel.passwordStream)
-            .disposed(by: disposeBag)
-        
-        self.loginViewModel.isValidStream
-            .bind(to: self.loginButton.rx.isEnabled)
+            .bind(to: self.loginViewModel.passwordVariable)
             .disposed(by: disposeBag)
         
         self.loginButton
             .rx.tap
-            .asDriver()
-            .throttle(1.0)
-            .drive(onNext: {
-                print("tap")
-        }).disposed(by: disposeBag)
+            .bind(to: self.loginViewModel.loginButtonSubject)
+            .disposed(by: disposeBag)
+        
+        self.loginViewModel.isLoginValidObservable
+            .bind(to: self.loginButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+//        self.loginButton
+//            .rx.tap
+//            .asDriver()
+//            .throttle(1.0)
+//            .drive(onNext: {
+//                print("tap")
+//        }).disposed(by: disposeBag)
     }
 
 }

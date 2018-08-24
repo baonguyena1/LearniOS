@@ -92,9 +92,12 @@ import UIKit
 
 let roundCash = { (input: Double) -> Double in
     let round3 = round(input*1000)/1000
-    return round(round3 * 100) / 100
+    return round(round3 * 10) / 10
 }
-roundCash(1.1246)
+
+roundCash(Double(1)/Double(10))
+
+roundCash(1.1546)
 roundCash(1.016)
 let ESP = 0.00001
 let stringByRoundCash = { ( input: Double) -> String in
@@ -106,4 +109,5 @@ let stringByRoundCash = { ( input: Double) -> String in
 }
 stringByRoundCash(1.1246)
 stringByRoundCash(1.016)
+
 
