@@ -51,7 +51,8 @@ class LoginViewController: UIViewController {
             .throttle(0.5, scheduler: MainScheduler.instance)
             .bind {
                 let searchViewController = SearchViewController.instantiate()
-                self.navigationController?.pushViewController(searchViewController, animated: true)
+                let userProfileViewController = UserProfileViewController.instantiate()
+                self.navigationController?.pushViewController(userProfileViewController, animated: true)
             }
             .disposed(by: disposeBag)
     }

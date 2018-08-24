@@ -80,6 +80,21 @@
             </objects>
             <point key="canvasLocation" x="969" y="-548"/>
         </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="YeL-vw-fn7">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileViewController" id="i4v-SV-0Q7" customClass="UserProfileViewController" customModule="GithubUserRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VyP-pQ-gdN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="II0-s9-ReA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A3D-aU-Rhl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-1298"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="J43-hi-pOS">
             <objects>

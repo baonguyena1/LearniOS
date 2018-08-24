@@ -28,7 +28,7 @@ extension GitHub: TargetType {
         case .repos(let name):
             return "/users/\(name.URLEscapedString)/repos"
         case .userProfile(let name):
-            return "/users/\(name.URLEscapedString)"
+            return "/users/\(name)"
         case .repo(let name):
             return "/repos/\(name)"
         case .issues(let repositoryName):

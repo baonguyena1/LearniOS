@@ -22,6 +22,9 @@
 		DCBA0636212FE5AF002FDCF8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0635212FE5AF002FDCF8 /* Repository.swift */; };
 		DCBA0638212FE5D3002FDCF8 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0637212FE5D3002FDCF8 /* Issue.swift */; };
 		DCBA063A212FE67C002FDCF8 /* IssueTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0639212FE67C002FDCF8 /* IssueTrackerModel.swift */; };
+		DCBA063C212FED99002FDCF8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA063B212FED99002FDCF8 /* User.swift */; };
+		DCBA0640212FEF0C002FDCF8 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA063F212FEF0C002FDCF8 /* UserProfileViewController.swift */; };
+		DCBA0642212FEF33002FDCF8 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */; };
 		DCF18336212E6F8F00E53A96 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */; };
 		E489077202841EB90D88AA81 /* Pods_GithubUserRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E6E846077C2A661C49D221 /* Pods_GithubUserRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +64,9 @@
 		DCBA0635212FE5AF002FDCF8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		DCBA0637212FE5D3002FDCF8 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		DCBA0639212FE67C002FDCF8 /* IssueTrackerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerModel.swift; sourceTree = "<group>"; };
+		DCBA063B212FED99002FDCF8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DCBA063F212FEF0C002FDCF8 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		DCF18331212E6C3A00E53A96 /* GithubUserRxSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GithubUserRxSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +125,7 @@
 			children = (
 				DC647A86212D6FBB00ABB689 /* LoginViewController.swift */,
 				DCBA062E212FC415002FDCF8 /* SearchViewController.swift */,
+				DCBA063F212FEF0C002FDCF8 /* UserProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 		DC647AA4212D710700ABB689 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */,
 				DC647AA5212D711200ABB689 /* LoginViewModel.swift */,
 				DCBA0639212FE67C002FDCF8 /* IssueTrackerModel.swift */,
 			);
@@ -201,6 +209,7 @@
 				DCBA0631212FC600002FDCF8 /* GitHub.swift */,
 				DCBA0635212FE5AF002FDCF8 /* Repository.swift */,
 				DCBA0637212FE5D3002FDCF8 /* Issue.swift */,
+				DCBA063B212FED99002FDCF8 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,9 +395,12 @@
 				DCBA062F212FC415002FDCF8 /* SearchViewController.swift in Sources */,
 				DC647A87212D6FBB00ABB689 /* LoginViewController.swift in Sources */,
 				DC647A85212D6FBB00ABB689 /* AppDelegate.swift in Sources */,
+				DCBA0642212FEF33002FDCF8 /* UserProfileViewModel.swift in Sources */,
 				DCBA0638212FE5D3002FDCF8 /* Issue.swift in Sources */,
 				DCBA063A212FE67C002FDCF8 /* IssueTrackerModel.swift in Sources */,
 				DC647AA6212D711200ABB689 /* LoginViewModel.swift in Sources */,
+				DCBA063C212FED99002FDCF8 /* User.swift in Sources */,
+				DCBA0640212FEF0C002FDCF8 /* UserProfileViewController.swift in Sources */,
 				DCBA062D212FC3E9002FDCF8 /* Storyboarded.swift in Sources */,
 				DCF18336212E6F8F00E53A96 /* UIView+Helper.swift in Sources */,
 				DCBA0636212FE5AF002FDCF8 /* Repository.swift in Sources */,
