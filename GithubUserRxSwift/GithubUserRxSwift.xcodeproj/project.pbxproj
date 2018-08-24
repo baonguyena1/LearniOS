@@ -21,6 +21,7 @@
 		DCBA0634212FC688002FDCF8 /* String+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0633212FC688002FDCF8 /* String+helper.swift */; };
 		DCBA0636212FE5AF002FDCF8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0635212FE5AF002FDCF8 /* Repository.swift */; };
 		DCBA0638212FE5D3002FDCF8 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0637212FE5D3002FDCF8 /* Issue.swift */; };
+		DCBA063A212FE67C002FDCF8 /* IssueTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0639212FE67C002FDCF8 /* IssueTrackerModel.swift */; };
 		DCF18336212E6F8F00E53A96 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */; };
 		E489077202841EB90D88AA81 /* Pods_GithubUserRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E6E846077C2A661C49D221 /* Pods_GithubUserRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		DCBA0633212FC688002FDCF8 /* String+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+helper.swift"; sourceTree = "<group>"; };
 		DCBA0635212FE5AF002FDCF8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		DCBA0637212FE5D3002FDCF8 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		DCBA0639212FE67C002FDCF8 /* IssueTrackerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerModel.swift; sourceTree = "<group>"; };
 		DCF18331212E6C3A00E53A96 /* GithubUserRxSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GithubUserRxSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				DC647AA5212D711200ABB689 /* LoginViewModel.swift */,
+				DCBA0639212FE67C002FDCF8 /* IssueTrackerModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				DC647A87212D6FBB00ABB689 /* LoginViewController.swift in Sources */,
 				DC647A85212D6FBB00ABB689 /* AppDelegate.swift in Sources */,
 				DCBA0638212FE5D3002FDCF8 /* Issue.swift in Sources */,
+				DCBA063A212FE67C002FDCF8 /* IssueTrackerModel.swift in Sources */,
 				DC647AA6212D711200ABB689 /* LoginViewModel.swift in Sources */,
 				DCBA062D212FC3E9002FDCF8 /* Storyboarded.swift in Sources */,
 				DCF18336212E6F8F00E53A96 /* UIView+Helper.swift in Sources */,
