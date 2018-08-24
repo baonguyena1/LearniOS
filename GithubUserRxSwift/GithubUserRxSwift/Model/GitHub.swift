@@ -25,14 +25,14 @@ extension GitHub: TargetType {
     
     var path: String {
         switch self {
-        case .userProfile(let username):
-            return "/users/\(username.URLEscapedString)"
-        case.repos(let username):
-            return "/users/\(username.URLEscapedString)/repos"
-        case .repo(let fullname):
-            return "/repos/\(fullname)"
-        case .issues(let reposiitoryFullName):
-            return "/repos/\(reposiitoryFullName)/issues"
+        case .repos(let name):
+            return "/users/\(name.URLEscapedString)/repos"
+        case .userProfile(let name):
+            return "/users/\(name.URLEscapedString)"
+        case .repo(let name):
+            return "/repos/\(name)"
+        case .issues(let repositoryName):
+            return "/repos/\(repositoryName)/issues"
         }
     }
     

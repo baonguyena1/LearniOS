@@ -21,6 +21,7 @@ struct IssueTrackerModel {
         return repositoryName
             .observeOn(MainScheduler.instance)
             .flatMap { (name) -> Observable<Repositoty> in
+                print("--->", name)
                 return self.findRepository(name: name)
             }
             .flatMap{ (repository) -> Observable<[Issue]?> in
