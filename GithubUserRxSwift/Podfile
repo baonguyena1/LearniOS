@@ -8,6 +8,9 @@ target 'GithubUserRxSwift' do
   # Pods for GithubUserRxSwift
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Moya-ModelMapper/RxSwift'
+  pod 'Moya'
+  pod 'RxOptional'
 
   target 'GithubUserRxSwiftTests' do
     inherit! :search_paths

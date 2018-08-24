@@ -13,21 +13,21 @@ import RxSwift
 struct LoginViewModel {
     let usernameVariable: Variable<String>
     let passwordVariable: Variable<String>
-    let loginButtonSubject: PublishSubject<Void>
+//    let loginButtonSubject: PublishSubject<Void>
     let disposeBag: DisposeBag
     
     init(disposeBag: DisposeBag) {
         self.disposeBag = disposeBag
         self.usernameVariable = Variable<String>("")
         self.passwordVariable = Variable<String>("")
-        self.loginButtonSubject = PublishSubject<Void>()
+//        self.loginButtonSubject = PublishSubject<Void>()
         
-        self.loginButtonSubject
-            .throttle(0.5, scheduler: MainScheduler.instance)
-            .bind {
-                print("tap")
-            }
-        .disposed(by: self.disposeBag)
+//        self.loginButtonSubject
+//            .throttle(0.5, scheduler: MainScheduler.instance)
+//            .bind {
+//                print("tap")
+//            }
+//        .disposed(by: self.disposeBag)
     }
     
     var isLoginValidObservable: Observable<Bool> {

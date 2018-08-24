@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loginViewModel = LoginViewModel(disposeBag: self.disposeBag)
+        self.usernameTextField.text = "a"
+        self.passwordTextField.text = "123456789"
         
         self.usernameTextField
             .rx.text
@@ -35,22 +37,23 @@ class LoginViewController: UIViewController {
             .bind(to: self.loginViewModel.passwordVariable)
             .disposed(by: disposeBag)
         
-        self.loginButton
-            .rx.tap
-            .bind(to: self.loginViewModel.loginButtonSubject)
-            .disposed(by: disposeBag)
+//        self.loginButton
+//            .rx.tap
+//            .bind(to: self.loginViewModel.loginButtonSubject)
+//            .disposed(by: disposeBag)
         
         self.loginViewModel.isLoginValidObservable
             .bind(to: self.loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
-//        self.loginButton
-//            .rx.tap
-//            .asDriver()
-//            .throttle(1.0)
-//            .drive(onNext: {
-//                print("tap")
-//        }).disposed(by: disposeBag)
+        self.loginButton
+            .rx.tap
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .bind {
+                let searchViewController = SearchViewController.instantiate()
+                self.navigationController?.pushViewController(searchViewController, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 
 }

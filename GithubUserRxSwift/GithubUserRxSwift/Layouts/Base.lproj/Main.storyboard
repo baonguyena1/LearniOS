@@ -80,6 +80,61 @@
             </objects>
             <point key="canvasLocation" x="969" y="-548"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="J43-hi-pOS">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="C6b-NS-2i6" customClass="SearchViewController" customModule="GithubUserRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bnb-YQ-2SP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="LP8-wZ-h2t">
+                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="9VK-7U-Ql9"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5v6-LF-Sum">
+                                <rect key="frame" x="0.0" y="100" width="375" height="678"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="LWZ-O3-2VQ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LWZ-O3-2VQ" id="3hM-yn-DQC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="C6b-NS-2i6" id="WyL-5M-BwX"/>
+                                    <outlet property="delegate" destination="C6b-NS-2i6" id="Nin-iA-6BF"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LP8-wZ-h2t" firstAttribute="trailing" secondItem="rfi-cl-OIn" secondAttribute="trailing" id="2an-sS-75x"/>
+                            <constraint firstItem="5v6-LF-Sum" firstAttribute="top" secondItem="LP8-wZ-h2t" secondAttribute="bottom" id="5Cq-HZ-lMw"/>
+                            <constraint firstItem="LP8-wZ-h2t" firstAttribute="leading" secondItem="rfi-cl-OIn" secondAttribute="leading" id="IOG-OL-tJa"/>
+                            <constraint firstItem="rfi-cl-OIn" firstAttribute="trailing" secondItem="5v6-LF-Sum" secondAttribute="trailing" id="Td8-HU-Txt"/>
+                            <constraint firstItem="LP8-wZ-h2t" firstAttribute="top" secondItem="rfi-cl-OIn" secondAttribute="top" id="sjw-eS-7aw"/>
+                            <constraint firstItem="5v6-LF-Sum" firstAttribute="leading" secondItem="rfi-cl-OIn" secondAttribute="leading" id="xzf-oi-rqI"/>
+                            <constraint firstItem="rfi-cl-OIn" firstAttribute="bottom" secondItem="5v6-LF-Sum" secondAttribute="bottom" id="yWM-cX-Uxn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rfi-cl-OIn"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="LP8-wZ-h2t" id="wAO-do-0db"/>
+                        <outlet property="tableView" destination="5v6-LF-Sum" id="cNN-Hx-8hN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rGM-Wv-F1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828" y="-548"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qCV-Nk-AjL">
             <objects>
