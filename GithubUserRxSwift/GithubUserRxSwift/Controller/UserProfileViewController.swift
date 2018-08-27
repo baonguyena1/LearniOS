@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Moya
-import Moya_ModelMapper
 import RxCocoa
 import RxSwift
+import MBProgressHUD
 
 class UserProfileViewController: UIViewController, Storyboarded {
     
@@ -27,6 +26,7 @@ class UserProfileViewController: UIViewController, Storyboarded {
         let username = "baonguyena1"
         self.userProfileViewModel = UserProfileViewModel()
         
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         self.userProfileViewModel
             .getUser(username: username)
             .subscribe(onNext: { (user) in
@@ -34,7 +34,9 @@ class UserProfileViewController: UIViewController, Storyboarded {
             }, onError: { (error) in
                 print(error.localizedDescription)
             }, onCompleted: {
-                // Hide indicator
+                
+            }, onDisposed: {
+                MBProgressHUD.hide(for: self.view, animated: true)
             })
             .disposed(by: disposeBag)
     }

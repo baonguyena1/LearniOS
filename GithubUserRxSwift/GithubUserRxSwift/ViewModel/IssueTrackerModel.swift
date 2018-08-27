@@ -16,7 +16,6 @@ struct IssueTrackerModel {
     func trackIssues() -> Observable<[Issue]> {
         return repositoryObservable
             .observeOn(MainScheduler.instance)
-            .skip(1)
             .flatMap {
                 return RepositotyService.trackIssues(by: $0)
             }

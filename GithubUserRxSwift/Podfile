@@ -11,7 +11,8 @@ target 'GithubUserRxSwift' do
   pod 'Moya'
   pod 'Moya-ModelMapper/RxSwift'
   pod 'RxOptional'
-
+  pod 'MBProgressHUD'
+  
   target 'GithubUserRxSwiftTests' do
     inherit! :search_paths
     # Pods for testing
