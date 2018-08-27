@@ -7,41 +7,18 @@
 //
 
 import Foundation
-import Moya
-import Moya_ModelMapper
-import RxOptional
 import RxSwift
 
 struct IssueTrackerModel {
     
-    let provider: MoyaProvider<GitHub>
-    let repositoryName: Observable<String>
+    let repositoryObservable: Observable<String>
     
     func trackIssues() -> Observable<[Issue]> {
-        return repositoryName
+        return repositoryObservable
             .observeOn(MainScheduler.instance)
-            .flatMap { (name) -> Observable<Repositoty> in
-                return self.findRepository(name: name)
+            .skip(1)
+            .flatMap {
+                return RepositotyService.trackIssues(by: $0)
             }
-            .flatMap{ (repository) -> Observable<[Issue]?> in
-                return self.findIssues(repository: repository)
-            }
-            .replaceNilWith([])
-    }
-    
-    fileprivate func findIssues(repository: Repositoty) -> Observable<[Issue]?> {
-        return self.provider.rx
-            .request(GitHub.issues(reposiitoryFullName: repository.fullName))
-            .debug()
-            .mapOptional(to: [Issue].self)
-            .asObservable()
-    }
-    
-    fileprivate func findRepository(name: String) -> Observable<Repositoty> {
-        return self.provider.rx
-            .request(GitHub.repo(fullname: name)).debug()
-            .mapOptional(to: Repositoty.self)
-            .asObservable()
-            .filterNil()
     }
 }

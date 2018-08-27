@@ -8,8 +8,8 @@ target 'GithubUserRxSwift' do
   # Pods for GithubUserRxSwift
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'Moya-ModelMapper/RxSwift'
   pod 'Moya'
+  pod 'Moya-ModelMapper/RxSwift'
   pod 'RxOptional'
 
   target 'GithubUserRxSwiftTests' do

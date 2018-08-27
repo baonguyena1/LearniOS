@@ -28,6 +28,8 @@
 		DCC8CD4D2133AF510004C345 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD4C2133AF510004C345 /* APIProvider.swift */; };
 		DCC8CD4F2133AF870004C345 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD4E2133AF870004C345 /* BaseService.swift */; };
 		DCC8CD512133B1D80004C345 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD502133B1D80004C345 /* UserService.swift */; };
+		DCC8CD532133BBAD0004C345 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD522133BBAD0004C345 /* BaseResponse.swift */; };
+		DCC8CD552133DD8B0004C345 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD542133DD8B0004C345 /* RepositoryService.swift */; };
 		DCF18336212E6F8F00E53A96 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */; };
 		E489077202841EB90D88AA81 /* Pods_GithubUserRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E6E846077C2A661C49D221 /* Pods_GithubUserRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +75,8 @@
 		DCC8CD4C2133AF510004C345 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		DCC8CD4E2133AF870004C345 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		DCC8CD502133B1D80004C345 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		DCC8CD522133BBAD0004C345 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		DCC8CD542133DD8B0004C345 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
 		DCF18331212E6C3A00E53A96 /* GithubUserRxSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GithubUserRxSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,6 +221,7 @@
 				DCBA0635212FE5AF002FDCF8 /* Repository.swift */,
 				DCBA0637212FE5D3002FDCF8 /* Issue.swift */,
 				DCBA063B212FED99002FDCF8 /* User.swift */,
+				DCC8CD522133BBAD0004C345 /* BaseResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				DCC8CD4C2133AF510004C345 /* APIProvider.swift */,
 				DCC8CD4E2133AF870004C345 /* BaseService.swift */,
 				DCC8CD502133B1D80004C345 /* UserService.swift */,
+				DCC8CD542133DD8B0004C345 /* RepositoryService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -416,6 +422,8 @@
 				DCC8CD512133B1D80004C345 /* UserService.swift in Sources */,
 				DCBA0642212FEF33002FDCF8 /* UserProfileViewModel.swift in Sources */,
 				DCBA0638212FE5D3002FDCF8 /* Issue.swift in Sources */,
+				DCC8CD552133DD8B0004C345 /* RepositoryService.swift in Sources */,
+				DCC8CD532133BBAD0004C345 /* BaseResponse.swift in Sources */,
 				DCC8CD4F2133AF870004C345 /* BaseService.swift in Sources */,
 				DCBA063A212FE67C002FDCF8 /* IssueTrackerModel.swift in Sources */,
 				DC647AA6212D711200ABB689 /* LoginViewModel.swift in Sources */,

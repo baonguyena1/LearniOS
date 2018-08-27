@@ -28,16 +28,14 @@ class UserProfileViewController: UIViewController, Storyboarded {
         self.userProfileViewModel = UserProfileViewModel()
         
         self.userProfileViewModel
-            .getUser(username: username).subscribe { (event) in
-                switch event {
-                case .next(let user):
-                    print(user.login, user.avatarUrl, user.id, user.name)
-                case .error(let error):
-                    print(error.localizedDescription)
-                case .completed:
-                    break
-                }
-            }
+            .getUser(username: username)
+            .subscribe(onNext: { (user) in
+                print(user.login, user.avatarUrl, user.id, user.name)
+            }, onError: { (error) in
+                print(error.localizedDescription)
+            }, onCompleted: {
+                // Hide indicator
+            })
             .disposed(by: disposeBag)
     }
 }

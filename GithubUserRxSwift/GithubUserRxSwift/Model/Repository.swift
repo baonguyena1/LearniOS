@@ -7,19 +7,30 @@
 //
 
 import Foundation
-import Mapper
 
-struct Repositoty: Mappable {
+struct Repositoty {
     
     let identifier: Int
     let language: String
     let name: String
     let fullName: String
     
-    init(map: Mapper) throws {
-        try identifier = map.from("id")
-        try language = map.from("language")
-        try name = map.from("name")
-        try fullName = map.from("full_name")
+    init?(json: [String: Any]) {
+        do {
+            if let identifier = json["id"] as? Int,
+            let language = json["language"] as? String,
+            let name = json["name"] as? String,
+            let fullName = json["full_name"] as? String {
+                
+                self.identifier = identifier
+                self.language = language
+                self.name = name
+                self.fullName = fullName
+            } else {
+                throw ResponseError.invalidJSONFormat
+            }
+        } catch {
+            return nil
+        }
     }
 }

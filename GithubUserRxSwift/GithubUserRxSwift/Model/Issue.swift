@@ -7,19 +7,30 @@
 //
 
 import Foundation
-import Mapper
 
-struct Issue: Mappable {
+struct Issue {
     
     let identifier: Int
     let number: Int
     let title: String
     let body: String
     
-    init(map: Mapper) throws {
-        try identifier = map.from("id")
-        try number = map.from("number")
-        try title = map.from("title")
-        try body = map.from("body")
+    init?(json: [String: Any]) {
+        do {
+            if let identifier = json["id"] as? Int,
+                let number = json["number"] as? Int,
+                let title = json["title"] as? String,
+                let body = json["body"] as? String {
+                
+                self.identifier = identifier
+                self.number = number
+                self.title = title
+                self.body = body
+            } else {
+                throw ResponseError.invalidJSONFormat
+            }
+        } catch {
+            return nil
+        }
     }
 }

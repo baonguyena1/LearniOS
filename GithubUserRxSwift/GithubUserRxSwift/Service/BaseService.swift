@@ -16,12 +16,12 @@ struct ResponseError {
 }
 
 protocol BaseService {
-    static func responseJson(api: GitHub) -> Observable<[String: Any]>
+    static func responseJson(api: GitHub) -> Observable<Any>
 }
 
 extension BaseService {
     
-    static func responseJson(api: GitHub) -> Observable<[String: Any]> {
+    static func responseJson(api: GitHub) -> Observable<Any> {
         
         return Observable.create({ (observer) -> Disposable in
             
@@ -30,12 +30,8 @@ extension BaseService {
                     switch result {
                     case .success(let response):
                         let json =  try response.mapJSON()
-                        if let jsonDict = json as? [String: Any] {
-                            observer.onNext(jsonDict)
-                            observer.onCompleted()
-                        } else {
-                            throw ResponseError.invalidJSONFormat
-                        }
+                        observer.onNext(json)
+                        observer.onCompleted()
                     case .failure(let error):
                         throw error
                     }

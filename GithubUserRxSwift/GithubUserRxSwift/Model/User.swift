@@ -8,7 +8,7 @@
 
 import Foundation
 //import Mapper
-
+//
 //struct User: Mappable {
 //    let login: String
 //    let id: Double
@@ -28,14 +28,14 @@ struct User {
     let id: Double
     let avatarUrl: String
     let name: String
-    
+
     init?(json: [String: Any]) {
         do {
             if let login = json["login"] as? String,
                 let id = json["id"] as? Double,
                 let avatarUrl = json["avatar_url"] as? String,
                 let name = json["name"] as? String {
-                
+
                 self.login = login
                 self.id = id
                 self.avatarUrl = avatarUrl
