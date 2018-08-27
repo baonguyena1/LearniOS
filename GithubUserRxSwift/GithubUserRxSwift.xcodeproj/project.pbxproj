@@ -27,6 +27,7 @@
 		DCBA0642212FEF33002FDCF8 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */; };
 		DCC8CD4D2133AF510004C345 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD4C2133AF510004C345 /* APIProvider.swift */; };
 		DCC8CD4F2133AF870004C345 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD4E2133AF870004C345 /* BaseService.swift */; };
+		DCC8CD512133B1D80004C345 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD502133B1D80004C345 /* UserService.swift */; };
 		DCF18336212E6F8F00E53A96 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */; };
 		E489077202841EB90D88AA81 /* Pods_GithubUserRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E6E846077C2A661C49D221 /* Pods_GithubUserRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		DCC8CD4C2133AF510004C345 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		DCC8CD4E2133AF870004C345 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		DCC8CD502133B1D80004C345 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DCF18331212E6C3A00E53A96 /* GithubUserRxSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GithubUserRxSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,6 +226,7 @@
 			children = (
 				DCC8CD4C2133AF510004C345 /* APIProvider.swift */,
 				DCC8CD4E2133AF870004C345 /* BaseService.swift */,
+				DCC8CD502133B1D80004C345 /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				DCBA062F212FC415002FDCF8 /* SearchViewController.swift in Sources */,
 				DC647A87212D6FBB00ABB689 /* LoginViewController.swift in Sources */,
 				DC647A85212D6FBB00ABB689 /* AppDelegate.swift in Sources */,
+				DCC8CD512133B1D80004C345 /* UserService.swift in Sources */,
 				DCBA0642212FEF33002FDCF8 /* UserProfileViewModel.swift in Sources */,
 				DCBA0638212FE5D3002FDCF8 /* Issue.swift in Sources */,
 				DCC8CD4F2133AF870004C345 /* BaseService.swift in Sources */,

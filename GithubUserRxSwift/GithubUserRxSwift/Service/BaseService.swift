@@ -8,15 +8,20 @@
 
 import Foundation
 import RxSwift
+import Moya_ModelMapper
 import RxOptional
 
 struct ResponseError {
     static let invalidJSONFormat = NSError(domain: "", code: 600, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON Format"])
 }
 
-struct BaseService {
+protocol BaseService {
+    static func responseJson(api: GitHub) -> Observable<[String: Any]>
+}
+
+extension BaseService {
     
-    static func getUser(api: GitHub) -> Observable<[String: Any]> {
+    static func responseJson(api: GitHub) -> Observable<[String: Any]> {
         
         return Observable.create({ (observer) -> Disposable in
             
@@ -44,4 +49,5 @@ struct BaseService {
             }
         })
     }
+    
 }

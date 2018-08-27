@@ -13,14 +13,8 @@ import RxOptional
 import RxSwift
 
 struct UserProfileViewModel {
-    let provider: MoyaProvider<GitHub>
-    let username: String
     
-    func getUser() -> Observable<User?> {
-        return self.provider.rx
-            .request(.userProfile(username: self.username))
-            .debug()
-            .mapOptional(to: User.self)
-            .asObservable()
+    func getUser(username: String) -> Observable<User> {
+        return UserService.getUser(username: username)
     }
 }

@@ -14,7 +14,6 @@ import RxSwift
 
 class UserProfileViewController: UIViewController, Storyboarded {
     
-    fileprivate var provider: MoyaProvider<GitHub>!
     fileprivate let disposeBag = DisposeBag()
     fileprivate var userProfileViewModel: UserProfileViewModel!
 
@@ -26,16 +25,17 @@ class UserProfileViewController: UIViewController, Storyboarded {
     
     fileprivate func setupRx() {
         let username = "baonguyena1"
-        self.provider = MoyaProvider<GitHub>()
-        self.userProfileViewModel = UserProfileViewModel(provider: self.provider, username: username)
+        self.userProfileViewModel = UserProfileViewModel()
         
         self.userProfileViewModel
-            .getUser()
-            .subscribe { (userEvent) in
-                print(userEvent)
-//                guard let `self` = self else { return }
-                if let user = userEvent.element as? User {
-                    print(user.avatarUrl, user.name)
+            .getUser(username: username).subscribe { (event) in
+                switch event {
+                case .next(let user):
+                    print(user.login, user.avatarUrl, user.id, user.name)
+                case .error(let error):
+                    print(error.localizedDescription)
+                case .completed:
+                    break
                 }
             }
             .disposed(by: disposeBag)
