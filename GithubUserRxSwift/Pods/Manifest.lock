@@ -25,8 +25,8 @@ PODS:
   - RxSwift (4.2.0)
 
 DEPENDENCIES:
-  - Moya
   - Moya-ModelMapper/RxSwift
+  - Moya/RxSwift
   - RxCocoa
   - RxOptional
   - RxSwift
@@ -52,6 +52,6 @@ SPEC CHECKSUMS:
   RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: 2804d1ef28817f374fee8f605ebe84a35243ce4f
+PODFILE CHECKSUM: 358a27e3feb2286c56fc39f203e1e151a90fc11f
 
 COCOAPODS: 1.5.3

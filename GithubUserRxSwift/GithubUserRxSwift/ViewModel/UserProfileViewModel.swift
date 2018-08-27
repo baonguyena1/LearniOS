@@ -18,7 +18,7 @@ struct UserProfileViewModel {
     
     func getUser() -> Observable<User?> {
         return self.provider.rx
-            .request(GitHub.userProfile(username: username))
+            .request(.userProfile(username: self.username))
             .debug()
             .mapOptional(to: User.self)
             .asObservable()

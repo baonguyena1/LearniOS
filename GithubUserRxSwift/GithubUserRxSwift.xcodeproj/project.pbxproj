@@ -25,6 +25,8 @@
 		DCBA063C212FED99002FDCF8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA063B212FED99002FDCF8 /* User.swift */; };
 		DCBA0640212FEF0C002FDCF8 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA063F212FEF0C002FDCF8 /* UserProfileViewController.swift */; };
 		DCBA0642212FEF33002FDCF8 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */; };
+		DCC8CD4D2133AF510004C345 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD4C2133AF510004C345 /* APIProvider.swift */; };
+		DCC8CD4F2133AF870004C345 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8CD4E2133AF870004C345 /* BaseService.swift */; };
 		DCF18336212E6F8F00E53A96 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */; };
 		E489077202841EB90D88AA81 /* Pods_GithubUserRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E6E846077C2A661C49D221 /* Pods_GithubUserRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,8 @@
 		DCBA063B212FED99002FDCF8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DCBA063F212FEF0C002FDCF8 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		DCC8CD4C2133AF510004C345 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		DCC8CD4E2133AF870004C345 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		DCF18331212E6C3A00E53A96 /* GithubUserRxSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GithubUserRxSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		DCF18335212E6F8F00E53A96 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +176,7 @@
 		DC647A83212D6FBB00ABB689 /* GithubUserRxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DCC8CD4B2133AF3C0004C345 /* Service */,
 				DCBA0630212FC5F5002FDCF8 /* Model */,
 				DC4B250D212E69D900003951 /* Extentions */,
 				DC647AA4212D710700ABB689 /* ViewModel */,
@@ -196,9 +201,9 @@
 		DC647AA4212D710700ABB689 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */,
 				DC647AA5212D711200ABB689 /* LoginViewModel.swift */,
 				DCBA0639212FE67C002FDCF8 /* IssueTrackerModel.swift */,
+				DCBA0641212FEF33002FDCF8 /* UserProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -212,6 +217,15 @@
 				DCBA063B212FED99002FDCF8 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DCC8CD4B2133AF3C0004C345 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DCC8CD4C2133AF510004C345 /* APIProvider.swift */,
+				DCC8CD4E2133AF870004C345 /* BaseService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,11 +406,13 @@
 			files = (
 				DCBA0634212FC688002FDCF8 /* String+helper.swift in Sources */,
 				DCBA0632212FC600002FDCF8 /* GitHub.swift in Sources */,
+				DCC8CD4D2133AF510004C345 /* APIProvider.swift in Sources */,
 				DCBA062F212FC415002FDCF8 /* SearchViewController.swift in Sources */,
 				DC647A87212D6FBB00ABB689 /* LoginViewController.swift in Sources */,
 				DC647A85212D6FBB00ABB689 /* AppDelegate.swift in Sources */,
 				DCBA0642212FEF33002FDCF8 /* UserProfileViewModel.swift in Sources */,
 				DCBA0638212FE5D3002FDCF8 /* Issue.swift in Sources */,
+				DCC8CD4F2133AF870004C345 /* BaseService.swift in Sources */,
 				DCBA063A212FE67C002FDCF8 /* IssueTrackerModel.swift in Sources */,
 				DC647AA6212D711200ABB689 /* LoginViewModel.swift in Sources */,
 				DCBA063C212FED99002FDCF8 /* User.swift in Sources */,
