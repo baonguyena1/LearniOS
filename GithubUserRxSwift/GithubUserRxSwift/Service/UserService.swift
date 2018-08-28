@@ -13,12 +13,14 @@ import RxOptional
 struct UserService: BaseService {
     
     static func getUser(username: String) -> Observable<User> {
-        return responseJson(api: .userProfile(username: username)).map {
-            if let json = $0 as? [String: Any],  let user = User(json: json) {
-                return user
-            } else {
-                throw ResponseError.invalidJSONFormat
+        return responseJson(api: .userProfile(username: username))
+            .debug()
+            .map {
+                if let json = $0 as? [String: Any],  let user = User(json: json) {
+                    return user
+                } else {
+                    throw ResponseError.invalidJSONFormat
+                }
             }
-        }
     }
 }

@@ -39,27 +39,27 @@ class SearchViewController: UIViewController, Storyboarded {
         self.prodiver = MoyaProvider()
         self.issueTrackerModel = IssueTrackerModel(repositoryObservable: self.latestRepositoryName)
         
-//        self.issueTrackerModel
-//            .trackIssues()
-//            .bind (to: self.tableView.rx.items) { tableView, row, item in
-//
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "issueCell", for: IndexPath(row: row, section: 0))
-//                cell.textLabel?.text = item.title
-//                return cell
-//            }
-//            .disposed(by: disposeBag)
-        
         self.issueTrackerModel
-            .trackIssues().subscribe(onNext: { (issues) in
-                
-            }, onError: { (error) in
-                print(error.localizedDescription)
-            }, onCompleted: {
-                
-            }, onDisposed: {
-                
-            })
+            .trackIssues()
+            .bind (to: self.tableView.rx.items) { tableView, row, item in
+
+                let cell = tableView.dequeueReusableCell(withIdentifier: "issueCell", for: IndexPath(row: row, section: 0))
+                cell.textLabel?.text = item.title
+                return cell
+            }
             .disposed(by: disposeBag)
+        
+//        self.issueTrackerModel
+//            .trackIssues().subscribe(onNext: { (issues) in
+//                
+//            }, onError: { (error) in
+//                print(error.localizedDescription)
+//            }, onCompleted: {
+//                
+//            }, onDisposed: {
+//                
+//            })
+//            .disposed(by: disposeBag)
         
         self.tableView
             .rx.itemSelected

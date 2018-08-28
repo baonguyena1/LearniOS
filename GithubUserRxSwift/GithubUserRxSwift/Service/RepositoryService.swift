@@ -12,29 +12,42 @@ import RxOptional
 
 struct RepositotyService: BaseService {
     
-    static func findRepository(by name: String) -> Observable<Repositoty> {
-        return responseJson(api: .repo(fullname: name)).map {
-            guard let json = $0 as? [String: Any], let repository = Repositoty.init(json: json) else {
-                throw ResponseError.invalidJSONFormat
+    static func findRepository(by name: String) -> Observable<Repositoty?> {
+        return responseJson(api: .repo(fullname: name))
+            .map {
+                guard let json = $0 as? [String: Any], let repository = Repositoty.init(json: json) else {
+                    return nil
+                }
+                return repository
             }
-            return repository
-        }
+            .debug()
     }
     
     static func findIssues(by repository: Repositoty) -> Observable<[Issue]> {
-        return responseJson(api: .issues(reposiitoryFullName: repository.fullName)).map {
-            guard let jsonArray = $0 as? [[String: Any]] else {
-                throw ResponseError.invalidJSONFormat
+        return responseJson(api: .issues(reposiitoryFullName: repository.fullName))
+            .debug()
+            .map { result -> [Issue]? in
+                guard let jsonArray = result as? [[String: Any]] else {
+                    return nil
+                }
+                let issues = jsonArray.compactMap { Issue.init(json: $0) }
+                return issues
             }
-            let issues = jsonArray.compactMap { Issue.init(json: $0) }
-            return issues
-        }
+            .replaceNilWith([])
     }
     
     static func trackIssues(by name: String) -> Observable<[Issue]> {
         return findRepository(by: name)
-            .flatMap { repository in
-            return findIssues(by: repository)
-        }
+            .debug()
+            .flatMap({ (repository) -> Observable<[Issue]> in
+                if let repository = repository {
+                    return findIssues(by: repository)
+                }
+                return Observable.create({ (observer) -> Disposable in
+                    observer.onNext([])
+                    observer.onCompleted()
+                    return Disposables.create()
+                })
+            })
     }
 }
