@@ -30,7 +30,7 @@ class UserProfileViewController: UIViewController, Storyboarded {
         self.userProfileViewModel
             .getUser(username: username)
             .subscribe(onNext: { (user) in
-                print(user.login, user.avatarUrl, user.id, user.name)
+                print(user.login, user.avatarUrl, user.id)
             }, onError: { (error) in
                 print(error.localizedDescription)
             }, onCompleted: {

@@ -39,7 +39,7 @@ struct RepositotyService: BaseService {
     static func trackIssues(by name: String) -> Observable<[Issue]> {
         return findRepository(by: name)
             .debug()
-            .flatMap({ (repository) -> Observable<[Issue]> in
+            .flatMap { (repository) -> Observable<[Issue]> in
                 if let repository = repository {
                     return findIssues(by: repository)
                 }
@@ -48,6 +48,19 @@ struct RepositotyService: BaseService {
                     observer.onCompleted()
                     return Disposables.create()
                 })
-            })
+            }
     }
+    
+    static func issueOfUser(username: String) -> Observable<[RepositoryInfo]> {
+        return responseJson(api: .repos(username: username))
+            .debug()
+            .map {
+                guard let jsonArray = $0 as? [[String: Any]] else {
+                    return []
+                }
+                let repositoriesInfo = jsonArray.compactMap { RepositoryInfo.init(json: $0) }
+                return repositoriesInfo
+            }
+    }
+    
 }

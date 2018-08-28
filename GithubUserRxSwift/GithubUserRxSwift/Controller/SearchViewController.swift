@@ -41,25 +41,12 @@ class SearchViewController: UIViewController, Storyboarded {
         
         self.issueTrackerModel
             .trackIssues()
-            .bind (to: self.tableView.rx.items) { tableView, row, item in
-
+            .bind(to: self.tableView.rx.items) { tableView, row, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "issueCell", for: IndexPath(row: row, section: 0))
                 cell.textLabel?.text = item.title
                 return cell
             }
             .disposed(by: disposeBag)
-        
-//        self.issueTrackerModel
-//            .trackIssues().subscribe(onNext: { (issues) in
-//                
-//            }, onError: { (error) in
-//                print(error.localizedDescription)
-//            }, onCompleted: {
-//                
-//            }, onDisposed: {
-//                
-//            })
-//            .disposed(by: disposeBag)
         
         self.tableView
             .rx.itemSelected
@@ -67,6 +54,19 @@ class SearchViewController: UIViewController, Storyboarded {
                 if self.searchBar.isFirstResponder {
                     self.view.endEditing(true)
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        RepositotyService
+            .issueOfUser(username: "baonguyena1")
+            .subscribe(onNext: { (repositories) in
+                print(repositories.count)
+            }, onError: { (error) in
+                print(error.localizedDescription)
+            }, onCompleted: {
+
+            }, onDisposed: {
+
             })
             .disposed(by: disposeBag)
     }

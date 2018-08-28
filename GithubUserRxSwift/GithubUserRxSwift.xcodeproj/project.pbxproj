@@ -15,6 +15,7 @@
 		DC647A8F212D6FBD00ABB689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC647A8D212D6FBD00ABB689 /* LaunchScreen.storyboard */; };
 		DC647A9A212D6FBD00ABB689 /* GithubUserRxSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647A99212D6FBD00ABB689 /* GithubUserRxSwiftTests.swift */; };
 		DC647AA6212D711200ABB689 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC647AA5212D711200ABB689 /* LoginViewModel.swift */; };
+		DC6E3D872134EBC2001F7F20 /* RepositoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E3D862134EBC2001F7F20 /* RepositoryInfo.swift */; };
 		DCBA062D212FC3E9002FDCF8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA062C212FC3E9002FDCF8 /* Storyboarded.swift */; };
 		DCBA062F212FC415002FDCF8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA062E212FC415002FDCF8 /* SearchViewController.swift */; };
 		DCBA0632212FC600002FDCF8 /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA0631212FC600002FDCF8 /* GitHub.swift */; };
@@ -62,6 +63,7 @@
 		DC647A99212D6FBD00ABB689 /* GithubUserRxSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserRxSwiftTests.swift; sourceTree = "<group>"; };
 		DC647A9B212D6FBD00ABB689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC647AA5212D711200ABB689 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		DC6E3D862134EBC2001F7F20 /* RepositoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInfo.swift; sourceTree = "<group>"; };
 		DCBA062C212FC3E9002FDCF8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		DCBA062E212FC415002FDCF8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DCBA0631212FC600002FDCF8 /* GitHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				DCBA0637212FE5D3002FDCF8 /* Issue.swift */,
 				DCBA063B212FED99002FDCF8 /* User.swift */,
 				DCC8CD522133BBAD0004C345 /* BaseResponse.swift */,
+				DC6E3D862134EBC2001F7F20 /* RepositoryInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				DCBA063A212FE67C002FDCF8 /* IssueTrackerModel.swift in Sources */,
 				DC647AA6212D711200ABB689 /* LoginViewModel.swift in Sources */,
 				DCBA063C212FED99002FDCF8 /* User.swift in Sources */,
+				DC6E3D872134EBC2001F7F20 /* RepositoryInfo.swift in Sources */,
 				DCBA0640212FEF0C002FDCF8 /* UserProfileViewController.swift in Sources */,
 				DCBA062D212FC3E9002FDCF8 /* Storyboarded.swift in Sources */,
 				DCF18336212E6F8F00E53A96 /* UIView+Helper.swift in Sources */,
